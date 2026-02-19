@@ -220,6 +220,11 @@ import {
 } from "../src/components/ui/item";
 import { Kbd } from "../src/components/ui/kbd";
 import { Spinner } from "../src/components/ui/spinner";
+import { Combobox } from "../src/components/ui/combobox";
+import { DatePicker } from "../src/components/ui/date-picker";
+import { DataTable } from "../src/components/ui/data-table";
+import { NativeSelect, NativeSelectOption } from "../src/components/ui/native-select";
+import { type ColumnDef } from "@tanstack/react-table";
 import { Box } from "../src/components/ui/box";
 import { Heading } from "../src/components/ui/heading";
 import { Text } from "../src/components/ui/text";
@@ -229,9 +234,43 @@ import { Section } from "../src/components/ui/section";
 import { BaseStyles } from "../src/components/base-styles";
 
 
+const frameworkOptions = [
+  { value: "next", label: "Next.js" },
+  { value: "sveltekit", label: "SvelteKit" },
+  { value: "nuxt", label: "Nuxt.js" },
+  { value: "remix", label: "Remix" },
+  { value: "astro", label: "Astro" },
+];
+
+type Payment = { id: string; amount: number; status: string; email: string };
+
+const payments: Payment[] = [
+  { id: "1", amount: 316, status: "success", email: "ken@example.com" },
+  { id: "2", amount: 242, status: "success", email: "abe@example.com" },
+  { id: "3", amount: 837, status: "processing", email: "monserrat@example.com" },
+  { id: "4", amount: 874, status: "success", email: "silas@example.com" },
+  { id: "5", amount: 721, status: "failed", email: "carmella@example.com" },
+];
+
+const paymentColumns: ColumnDef<Payment>[] = [
+  { accessorKey: "status", header: "Status" },
+  { accessorKey: "email", header: "Email" },
+  {
+    accessorKey: "amount",
+    header: "Amount",
+    cell: ({ row }) => {
+      const amount = parseFloat(row.getValue("amount"));
+      const formatted = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(amount);
+      return <div className="font-medium">{formatted}</div>;
+    },
+  },
+];
+
 export default function App() {
   const [dark, setDark] = useState(false);
   const [progress, setProgress] = useState(45);
+  const [comboValue, setComboValue] = useState("");
+  const [pickerDate, setPickerDate] = useState<Date | undefined>();
 
   return (
     <BaseStyles colorMode={dark ? "dark" : "light"}>
@@ -1318,6 +1357,44 @@ export default function App() {
                   </ToggleGroup>
                 </div>
               </div>
+            </Section>
+
+            {/* Combobox */}
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Combobox">
+              <Combobox
+                options={frameworkOptions}
+                value={comboValue}
+                onValueChange={setComboValue}
+                placeholder="Select a framework"
+                searchPlaceholder="Search frameworks..."
+              />
+            </Section>
+
+            {/* Date Picker */}
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Date Picker">
+              <DatePicker
+                date={pickerDate}
+                onDateChange={setPickerDate}
+                placeholder="Pick a date"
+              />
+            </Section>
+
+            {/* Native Select */}
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Native Select">
+              <div className="max-w-xs">
+                <NativeSelect defaultValue="">
+                  <NativeSelectOption value="" disabled>Select a fruit</NativeSelectOption>
+                  <NativeSelectOption value="apple">Apple</NativeSelectOption>
+                  <NativeSelectOption value="banana">Banana</NativeSelectOption>
+                  <NativeSelectOption value="cherry">Cherry</NativeSelectOption>
+                  <NativeSelectOption value="grape">Grape</NativeSelectOption>
+                </NativeSelect>
+              </div>
+            </Section>
+
+            {/* Data Table */}
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Data Table">
+              <DataTable columns={paymentColumns} data={payments} />
             </Section>
 
             {/* Sonner / Toast */}

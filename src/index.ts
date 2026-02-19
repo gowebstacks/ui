@@ -80,6 +80,9 @@ export type { StackProps } from "./components/ui/stack";
 
 export { Calendar, CalendarDayButton } from "./components/ui/calendar";
 
+export { Combobox } from "./components/ui/combobox";
+export type { ComboboxProps, ComboboxOption } from "./components/ui/combobox";
+
 export {
   Card,
   CardHeader,
@@ -109,6 +112,13 @@ export {
 } from "./components/ui/chart";
 
 export { Checkbox } from "./components/ui/checkbox";
+
+export { DataTable } from "./components/ui/data-table";
+export type { DataTableProps } from "./components/ui/data-table";
+
+export { DatePicker } from "./components/ui/date-picker";
+
+export { DirectionProvider, useDirection } from "./components/ui/direction";
 
 export {
   Collapsible,
@@ -263,6 +273,12 @@ export {
 export { Kbd, KbdGroup } from "./components/ui/kbd";
 
 export { Label } from "./components/ui/label";
+
+export {
+  NativeSelect,
+  NativeSelectOption,
+  NativeSelectGroup,
+} from "./components/ui/native-select";
 
 export {
   Menubar,
