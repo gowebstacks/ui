@@ -17,9 +17,10 @@
         "default": "./dist/index.cjs"
       }
     },
-    "./styles.css": "./dist/styles.css",
+    "./styles.css": "./dist/index.css",
     "./styles": "./src/styles/globals.css",
-    "./fonts.css": "./src/styles/fonts.css"
+    "./fonts.css": "./src/styles/fonts.css",
+    "./dist/index.css": "./dist/index.css"
   },
   "files": [
     "dist",
