@@ -1,53 +1,89 @@
 # @webstacks/ui
 
-A shareable React component library built on [shadcn/ui](https://ui.shadcn.com), [Radix UI](https://www.radix-ui.com), and [Tailwind CSS](https://tailwindcss.com).
+A React implementation of the Webstacks Design System — built on [Radix UI](https://www.radix-ui.com), [Tailwind CSS](https://tailwindcss.com), and [shadcn/ui](https://ui.shadcn.com).
 
-## Installation
+## Getting started
+
+To install `@webstacks/ui` in your project, run the following command:
 
 ```bash
 npm install @webstacks/ui
 ```
 
-## Peer Dependencies
-
-This library requires the following peer dependencies in your consuming application:
+If you prefer Yarn or pnpm:
 
 ```bash
-npm install react react-dom
+yarn add @webstacks/ui
+# or
+pnpm add @webstacks/ui
 ```
+
+This package includes:
+
+- **Components** — all UI primitives and layout components
+- **Design tokens** — color primitives, semantic tokens, and shadcn variable bridge
+- **Fonts** — Saans and TT Interphases Pro Mono font files and `@font-face` declarations
+- **Typography** — a full type scale with semantic font variables
 
 ## Usage
 
 Import components directly from the package:
 
 ```tsx
-import { Button, Card, CardHeader, CardTitle, CardContent } from "@webstacks/ui";
+import { Button } from "@webstacks/ui";
 
-export function MyComponent() {
-  return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Hello</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <Button variant="outline">Click me</Button>
-      </CardContent>
-    </Card>
-  );
+function App() {
+  return <Button>Hello world</Button>;
 }
 ```
 
-### Styles
+At the root of your application, wrap your content with the `BaseStyles` component. This injects all design tokens, fonts, color primitives, and base styles:
 
-You must import the CSS in your application's entry point:
+```tsx
+import { BaseStyles } from "@webstacks/ui";
+
+function RootLayout({ children }) {
+  return <BaseStyles>{children}</BaseStyles>;
+}
+```
+
+### Color mode
+
+`BaseStyles` accepts a `colorMode` prop to control light/dark theming:
+
+```tsx
+// Force light mode (default)
+<BaseStyles colorMode="light">
+
+// Force dark mode
+<BaseStyles colorMode="dark">
+
+// Follow system preference
+<BaseStyles colorMode="auto">
+```
+
+### Alternative: manual CSS import
+
+If you prefer not to use `BaseStyles`, you can import the styles directly in your entry point:
 
 ```tsx
 import "@webstacks/ui/styles.css";
 ```
 
-Or include the Tailwind CSS variables from `globals.css` in your own Tailwind setup.
+## Components
 
-## Available Components
+### Layout
+
+- **Box** — versatile layout primitive with padding, margin, background, border, and border-radius props
+- **Grid** / **GridColumn** — 12-column grid with responsive columns and gap control
+- **Stack** — one-dimensional flex layout with direction, gap, alignment, and justification
+
+### Typography
+
+- **Heading** — semantic heading component (h1–h6) with size, weight, stretch, and letter-spacing variants
+- **Text** — body text component with size (100–700), variant, weight, and alignment
+
+### UI Primitives
 
 Accordion, Alert, AlertDialog, AspectRatio, Avatar, Badge, Breadcrumb, Button, Calendar, Card, Carousel, Chart, Checkbox, Collapsible, Command, ContextMenu, Dialog, Drawer, DropdownMenu, Form, HoverCard, Input, InputOTP, Label, Menubar, NavigationMenu, Pagination, Popover, Progress, RadioGroup, Resizable, ScrollArea, Select, Separator, Sheet, Sidebar, Skeleton, Slider, Sonner, Switch, Table, Tabs, Textarea, Toast, Toaster, Toggle, ToggleGroup, Tooltip
 
@@ -61,7 +97,7 @@ Accordion, Alert, AlertDialog, AspectRatio, Avatar, Badge, Breadcrumb, Button, C
 ## Utilities
 
 - `cn()` — Tailwind class merging utility (clsx + tailwind-merge)
-- `buttonVariants` / `badgeVariants` / `toggleVariants` — CVA variant helpers
+- `buttonVariants` / `badgeVariants` / `toggleVariants` / `boxVariants` / `headingVariants` / `textVariants` — CVA variant helpers
 
 ## Development
 
@@ -75,6 +111,9 @@ npm run build
 # Watch mode
 npm run dev
 
+# Preview all components
+npm run dev:preview
+
 # Type check
 npm run typecheck
 ```
@@ -82,6 +121,10 @@ npm run typecheck
 ## Publishing
 
 ```bash
-npm run build
+npm version patch  # or minor / major
 npm publish --access public
 ```
+
+## License
+
+MIT

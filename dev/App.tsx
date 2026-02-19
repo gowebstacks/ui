@@ -123,6 +123,7 @@ import { Heading } from "../src/components/ui/heading";
 import { Text } from "../src/components/ui/text";
 import { Grid, GridColumn } from "../src/components/ui/grid";
 import { Stack } from "../src/components/ui/stack";
+import { BaseStyles } from "../src/components/base-styles";
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -140,8 +141,8 @@ export default function App() {
   const [progress, setProgress] = useState(45);
 
   return (
+    <BaseStyles colorMode={dark ? "dark" : "light"}>
     <TooltipProvider>
-      <div className={dark ? "dark" : ""}>
         <div className="min-h-screen bg-background text-foreground">
           {/* Header */}
           <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur">
@@ -916,7 +917,7 @@ export default function App() {
             </Section>
           </main>
         </div>
-      </div>
     </TooltipProvider>
+    </BaseStyles>
   );
 }

@@ -1,3 +1,7 @@
+// Base styles provider
+export { BaseStyles } from "./components/base-styles";
+export type { BaseStylesProps } from "./components/base-styles";
+
 // Utilities
 export { cn } from "./lib/utils";
 
