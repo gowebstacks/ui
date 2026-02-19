@@ -17,6 +17,7 @@
         "default": "./dist/index.cjs"
       }
     },
+    "./theme": "./src/styles/theme.css",
     "./styles.css": "./dist/index.css",
     "./styles": "./src/styles/globals.css",
     "./fonts.css": "./src/styles/fonts.css",
