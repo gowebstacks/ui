@@ -127,7 +127,7 @@ import { Stack } from "../src/components/ui/stack";
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section className="space-y-4">
-      <h2 className="text-2xl font-bold text-foreground border-b border-border pb-2">
+      <h2 className="text-2xl text-foreground border-b border-border pb-2">
         {title}
       </h2>
       <div className="space-y-4">{children}</div>
@@ -146,7 +146,7 @@ export default function App() {
           {/* Header */}
           <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur">
             <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-              <h1 className="text-xl font-bold">@webstacks/ui</h1>
+              <h1 className="text-xl">@webstacks/ui</h1>
               <div className="flex items-center gap-3">
                 <Label htmlFor="dark-toggle" className="text-sm">
                   Dark Mode
@@ -176,14 +176,14 @@ export default function App() {
                 <Heading as="h4" size="subhead-medium">Subhead medium</Heading>
               </div>
               <div className="space-y-3 mt-6">
-                <p className="text-xs font-medium text-muted-foreground">Weight variants</p>
+                <p className="text-xs text-muted-foreground">Weight variants</p>
                 <Heading as="h3" size={3} weight="light">Light heading</Heading>
                 <Heading as="h3" size={3} weight="normal">Normal heading</Heading>
                 <Heading as="h3" size={3} weight="semibold">Semibold heading</Heading>
                 <Heading as="h3" size={3} weight="bold">Bold heading</Heading>
               </div>
               <div className="mt-6">
-                <p className="text-xs font-medium text-muted-foreground mb-2">Muted variant</p>
+                <p className="text-xs text-muted-foreground mb-2">Muted variant</p>
                 <Heading as="h3" size={3} variant="muted">Muted heading</Heading>
               </div>
             </Section>
@@ -200,11 +200,11 @@ export default function App() {
                 <Text size={100}>Text size 100 — Extra small text for fine print</Text>
               </div>
               <div className="space-y-3 mt-6">
-                <p className="text-xs font-medium text-muted-foreground">Muted variant</p>
+                <p className="text-xs text-muted-foreground">Muted variant</p>
                 <Text variant="muted">This is muted text, used to de-emphasize content or provide visual contrast when paired with a title.</Text>
               </div>
               <div className="space-y-3 mt-6">
-                <p className="text-xs font-medium text-muted-foreground">Weight variants</p>
+                <p className="text-xs text-muted-foreground">Weight variants</p>
                 <Text weight="light">Light weight text</Text>
                 <Text weight="normal">Normal weight text</Text>
                 <Text weight="medium">Medium weight text</Text>
@@ -212,7 +212,7 @@ export default function App() {
                 <Text weight="bold">Bold weight text</Text>
               </div>
               <div className="space-y-3 mt-6">
-                <p className="text-xs font-medium text-muted-foreground">Alignment</p>
+                <p className="text-xs text-muted-foreground">Alignment</p>
                 <Text align="start">Start-aligned text</Text>
                 <Text align="center">Center-aligned text</Text>
                 <Text align="end">End-aligned text</Text>
@@ -243,7 +243,7 @@ export default function App() {
               <Grid columns={{ narrow: 1, regular: 2, wide: 4 }} gap="normal">
                 {[1, 2, 3, 4].map((i) => (
                   <Box key={i} padding="normal" backgroundColor="subtle" borderRadius="medium" borderStyle="solid" borderColor="default">
-                    <span className="text-sm font-medium">Column {i}</span>
+                    <span className="text-sm">Column {i}</span>
                   </Box>
                 ))}
               </Grid>
@@ -252,12 +252,12 @@ export default function App() {
               <Grid columns={12} gap="condensed" className="mt-4">
                 <GridColumn span={8}>
                   <Box padding="normal" backgroundColor="subtle" borderRadius="medium" borderStyle="solid" borderColor="default">
-                    <span className="text-sm font-medium">Main content (span 8)</span>
+                    <span className="text-sm">Main content (span 8)</span>
                   </Box>
                 </GridColumn>
                 <GridColumn span={4}>
                   <Box padding="normal" backgroundColor="inset" borderRadius="medium" borderStyle="solid" borderColor="default">
-                    <span className="text-sm font-medium">Sidebar (span 4)</span>
+                    <span className="text-sm">Sidebar (span 4)</span>
                   </Box>
                 </GridColumn>
               </Grid>
@@ -268,7 +268,7 @@ export default function App() {
               <p className="text-sm text-muted-foreground">Vertical and horizontal stacking with gap, alignment, and justification.</p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <p className="text-xs font-medium mb-2">Vertical (default)</p>
+                  <p className="text-xs mb-2">Vertical (default)</p>
                   <Stack gap="condensed">
                     <Box padding="condensed" backgroundColor="subtle" borderRadius="small"><span className="text-sm">Item 1</span></Box>
                     <Box padding="condensed" backgroundColor="subtle" borderRadius="small"><span className="text-sm">Item 2</span></Box>
@@ -276,7 +276,7 @@ export default function App() {
                   </Stack>
                 </div>
                 <div>
-                  <p className="text-xs font-medium mb-2">Horizontal, center-aligned</p>
+                  <p className="text-xs mb-2">Horizontal, center-aligned</p>
                   <Stack direction="horizontal" gap="normal" align="center">
                     <Box padding="condensed" backgroundColor="subtle" borderRadius="small"><span className="text-sm">A</span></Box>
                     <Box padding="spacious" backgroundColor="subtle" borderRadius="small"><span className="text-sm">B (taller)</span></Box>
@@ -284,14 +284,14 @@ export default function App() {
                   </Stack>
                 </div>
                 <div>
-                  <p className="text-xs font-medium mb-2">Horizontal, space-between</p>
+                  <p className="text-xs mb-2">Horizontal, space-between</p>
                   <Stack direction="horizontal" gap="normal" justify="space-between" className="w-full">
                     <Button>Left</Button>
                     <Button variant="outline">Right</Button>
                   </Stack>
                 </div>
                 <div>
-                  <p className="text-xs font-medium mb-2">Responsive: vertical (narrow) → horizontal (regular)</p>
+                  <p className="text-xs mb-2">Responsive: vertical (narrow) → horizontal (regular)</p>
                   <Stack direction={{ narrow: "vertical", regular: "horizontal" }} gap="normal" align="center">
                     <Badge>Tag 1</Badge>
                     <Badge>Tag 2</Badge>
@@ -403,7 +403,7 @@ export default function App() {
             <Section title="Checkbox, Radio & Switch">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="space-y-3">
-                  <h3 className="font-medium">Checkbox</h3>
+                  <h3>Checkbox</h3>
                   <div className="flex items-center gap-2">
                     <Checkbox id="terms" />
                     <Label htmlFor="terms">Accept terms</Label>
@@ -414,7 +414,7 @@ export default function App() {
                   </div>
                 </div>
                 <div className="space-y-3">
-                  <h3 className="font-medium">Radio Group</h3>
+                  <h3>Radio Group</h3>
                   <RadioGroup defaultValue="option-1">
                     <div className="flex items-center gap-2">
                       <RadioGroupItem value="option-1" id="r1" />
@@ -431,7 +431,7 @@ export default function App() {
                   </RadioGroup>
                 </div>
                 <div className="space-y-3">
-                  <h3 className="font-medium">Switch</h3>
+                  <h3>Switch</h3>
                   <div className="flex items-center gap-2">
                     <Switch id="airplane" />
                     <Label htmlFor="airplane">Airplane Mode</Label>
@@ -610,19 +610,19 @@ export default function App() {
                 </TableHeader>
                 <TableBody>
                   <TableRow>
-                    <TableCell className="font-medium">INV001</TableCell>
+                    <TableCell>INV001</TableCell>
                     <TableCell><Badge>Paid</Badge></TableCell>
                     <TableCell>Credit Card</TableCell>
                     <TableCell className="text-right">$250.00</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell className="font-medium">INV002</TableCell>
+                    <TableCell>INV002</TableCell>
                     <TableCell><Badge variant="outline">Pending</Badge></TableCell>
                     <TableCell>PayPal</TableCell>
                     <TableCell className="text-right">$150.00</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell className="font-medium">INV003</TableCell>
+                    <TableCell>INV003</TableCell>
                     <TableCell><Badge variant="destructive">Overdue</Badge></TableCell>
                     <TableCell>Bank Transfer</TableCell>
                     <TableCell className="text-right">$350.00</TableCell>
@@ -715,7 +715,7 @@ export default function App() {
                         <AvatarFallback>WS</AvatarFallback>
                       </Avatar>
                       <div className="space-y-1">
-                        <h4 className="text-sm font-semibold">@webstacks</h4>
+                        <h4 className="text-sm">@webstacks</h4>
                         <p className="text-sm text-muted-foreground">
                           A shareable React component library built with shadcn/ui.
                         </p>
@@ -734,7 +734,7 @@ export default function App() {
                 </PopoverTrigger>
                 <PopoverContent className="w-80">
                   <div className="space-y-3">
-                    <h4 className="font-medium">Dimensions</h4>
+                    <h4>Dimensions</h4>
                     <div className="grid gap-2">
                       <div className="grid grid-cols-3 items-center gap-4">
                         <Label htmlFor="width">Width</Label>
@@ -814,7 +814,7 @@ export default function App() {
             <Section title="Separator">
               <div className="max-w-md">
                 <div className="space-y-1">
-                  <h4 className="text-sm font-medium">Radix Primitives</h4>
+                  <h4 className="text-sm">Radix Primitives</h4>
                   <p className="text-sm text-muted-foreground">
                     An open-source UI component library.
                   </p>
@@ -868,7 +868,7 @@ export default function App() {
                   { name: "Mint", prefix: "--color-mint" },
                 ].map(({ name, prefix }) => (
                   <div key={name}>
-                    <h3 className="text-sm font-medium mb-2">{name}</h3>
+                    <h3 className="text-sm mb-2">{name}</h3>
                     <div className="flex gap-1">
                       {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((shade) => (
                         <div
@@ -907,7 +907,7 @@ export default function App() {
                       style={{ backgroundColor: `var(${cssVar})` }}
                     />
                     <div>
-                      <div className="text-xs font-medium">{label}</div>
+                      <div className="text-xs">{label}</div>
                       <div className="text-xs text-muted-foreground">{cssVar}</div>
                     </div>
                   </div>
