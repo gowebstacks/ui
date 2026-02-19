@@ -118,6 +118,11 @@ import {
   SheetTrigger,
 } from "../src/components/ui/sheet";
 import { ScrollArea } from "../src/components/ui/scroll-area";
+import { Box } from "../src/components/ui/box";
+import { Heading } from "../src/components/ui/heading";
+import { Text } from "../src/components/ui/text";
+import { Grid, GridColumn } from "../src/components/ui/grid";
+import { Stack } from "../src/components/ui/stack";
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -157,6 +162,145 @@ export default function App() {
 
           {/* Content */}
           <main className="max-w-6xl mx-auto px-6 py-10 space-y-16">
+            {/* Heading */}
+            <Section title="Heading">
+              <div className="space-y-6">
+                <Heading as="h1" size="display">Display heading</Heading>
+                <Heading as="h1" size={1}>Heading size 1</Heading>
+                <Heading as="h2" size={2}>Heading size 2</Heading>
+                <Heading as="h3" size={3}>Heading size 3</Heading>
+                <Heading as="h4" size={4}>Heading size 4</Heading>
+                <Heading as="h5" size={5}>Heading size 5</Heading>
+                <Heading as="h6" size={6}>Heading size 6</Heading>
+                <Heading as="h3" size="subhead-large">Subhead large</Heading>
+                <Heading as="h4" size="subhead-medium">Subhead medium</Heading>
+              </div>
+              <div className="space-y-3 mt-6">
+                <p className="text-xs font-medium text-muted-foreground">Weight variants</p>
+                <Heading as="h3" size={3} weight="light">Light heading</Heading>
+                <Heading as="h3" size={3} weight="normal">Normal heading</Heading>
+                <Heading as="h3" size={3} weight="semibold">Semibold heading</Heading>
+                <Heading as="h3" size={3} weight="bold">Bold heading</Heading>
+              </div>
+              <div className="mt-6">
+                <p className="text-xs font-medium text-muted-foreground mb-2">Muted variant</p>
+                <Heading as="h3" size={3} variant="muted">Muted heading</Heading>
+              </div>
+            </Section>
+
+            {/* Text */}
+            <Section title="Text">
+              <div className="space-y-4">
+                <Text size={700}>Text size 700 — Display body text</Text>
+                <Text size={600}>Text size 600 — Large body text for emphasis</Text>
+                <Text size={500}>Text size 500 — Slightly larger than default</Text>
+                <Text size={400}>Text size 400 — Default body text used for paragraphs and general content.</Text>
+                <Text size={300}>Text size 300 — Slightly smaller body text</Text>
+                <Text size={200}>Text size 200 — Small text for captions and labels</Text>
+                <Text size={100}>Text size 100 — Extra small text for fine print</Text>
+              </div>
+              <div className="space-y-3 mt-6">
+                <p className="text-xs font-medium text-muted-foreground">Muted variant</p>
+                <Text variant="muted">This is muted text, used to de-emphasize content or provide visual contrast when paired with a title.</Text>
+              </div>
+              <div className="space-y-3 mt-6">
+                <p className="text-xs font-medium text-muted-foreground">Weight variants</p>
+                <Text weight="light">Light weight text</Text>
+                <Text weight="normal">Normal weight text</Text>
+                <Text weight="medium">Medium weight text</Text>
+                <Text weight="semibold">Semibold weight text</Text>
+                <Text weight="bold">Bold weight text</Text>
+              </div>
+              <div className="space-y-3 mt-6">
+                <p className="text-xs font-medium text-muted-foreground">Alignment</p>
+                <Text align="start">Start-aligned text</Text>
+                <Text align="center">Center-aligned text</Text>
+                <Text align="end">End-aligned text</Text>
+              </div>
+            </Section>
+
+            {/* Box */}
+            <Section title="Box">
+              <div className="space-y-4">
+                <p className="text-sm text-muted-foreground">Padding, background, border, and border-radius options.</p>
+                <div className="flex flex-wrap gap-4">
+                  <Box padding="normal" backgroundColor="subtle" borderRadius="large" className="w-48">
+                    <span className="text-sm">padding=normal, bg=subtle, radius=large</span>
+                  </Box>
+                  <Box padding="spacious" backgroundColor="inset" borderStyle="solid" borderColor="default" borderRadius="medium" className="w-48">
+                    <span className="text-sm">padding=spacious, bg=inset, border=solid</span>
+                  </Box>
+                  <Box padding="condensed" backgroundColor="default" borderStyle="dashed" borderColor="muted" borderRadius="xlarge" className="w-48">
+                    <span className="text-sm">padding=condensed, border=dashed</span>
+                  </Box>
+                </div>
+              </div>
+            </Section>
+
+            {/* Grid */}
+            <Section title="Grid">
+              <p className="text-sm text-muted-foreground">12-column grid with responsive columns and gap control.</p>
+              <Grid columns={{ narrow: 1, regular: 2, wide: 4 }} gap="normal">
+                {[1, 2, 3, 4].map((i) => (
+                  <Box key={i} padding="normal" backgroundColor="subtle" borderRadius="medium" borderStyle="solid" borderColor="default">
+                    <span className="text-sm font-medium">Column {i}</span>
+                  </Box>
+                ))}
+              </Grid>
+              <p className="text-xs text-muted-foreground mt-2">Responsive: 1 col (narrow) → 2 cols (md) → 4 cols (lg)</p>
+
+              <Grid columns={12} gap="condensed" className="mt-4">
+                <GridColumn span={8}>
+                  <Box padding="normal" backgroundColor="subtle" borderRadius="medium" borderStyle="solid" borderColor="default">
+                    <span className="text-sm font-medium">Main content (span 8)</span>
+                  </Box>
+                </GridColumn>
+                <GridColumn span={4}>
+                  <Box padding="normal" backgroundColor="inset" borderRadius="medium" borderStyle="solid" borderColor="default">
+                    <span className="text-sm font-medium">Sidebar (span 4)</span>
+                  </Box>
+                </GridColumn>
+              </Grid>
+            </Section>
+
+            {/* Stack */}
+            <Section title="Stack">
+              <p className="text-sm text-muted-foreground">Vertical and horizontal stacking with gap, alignment, and justification.</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <p className="text-xs font-medium mb-2">Vertical (default)</p>
+                  <Stack gap="condensed">
+                    <Box padding="condensed" backgroundColor="subtle" borderRadius="small"><span className="text-sm">Item 1</span></Box>
+                    <Box padding="condensed" backgroundColor="subtle" borderRadius="small"><span className="text-sm">Item 2</span></Box>
+                    <Box padding="condensed" backgroundColor="subtle" borderRadius="small"><span className="text-sm">Item 3</span></Box>
+                  </Stack>
+                </div>
+                <div>
+                  <p className="text-xs font-medium mb-2">Horizontal, center-aligned</p>
+                  <Stack direction="horizontal" gap="normal" align="center">
+                    <Box padding="condensed" backgroundColor="subtle" borderRadius="small"><span className="text-sm">A</span></Box>
+                    <Box padding="spacious" backgroundColor="subtle" borderRadius="small"><span className="text-sm">B (taller)</span></Box>
+                    <Box padding="condensed" backgroundColor="subtle" borderRadius="small"><span className="text-sm">C</span></Box>
+                  </Stack>
+                </div>
+                <div>
+                  <p className="text-xs font-medium mb-2">Horizontal, space-between</p>
+                  <Stack direction="horizontal" gap="normal" justify="space-between" className="w-full">
+                    <Button>Left</Button>
+                    <Button variant="outline">Right</Button>
+                  </Stack>
+                </div>
+                <div>
+                  <p className="text-xs font-medium mb-2">Responsive: vertical (narrow) → horizontal (regular)</p>
+                  <Stack direction={{ narrow: "vertical", regular: "horizontal" }} gap="normal" align="center">
+                    <Badge>Tag 1</Badge>
+                    <Badge>Tag 2</Badge>
+                    <Badge>Tag 3</Badge>
+                  </Stack>
+                </div>
+              </div>
+            </Section>
+
             {/* Buttons */}
             <Section title="Button">
               <div className="flex flex-wrap gap-3">

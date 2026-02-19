@@ -46,8 +46,23 @@ export {
   BreadcrumbEllipsis,
 } from "./components/ui/breadcrumb";
 
+export { Box, boxVariants } from "./components/ui/box";
+export type { BoxProps } from "./components/ui/box";
+
 export { Button, buttonVariants } from "./components/ui/button";
 export type { ButtonProps } from "./components/ui/button";
+
+export { Grid, GridColumn, gridVariants, gridColumnVariants } from "./components/ui/grid";
+
+export { Heading, headingVariants } from "./components/ui/heading";
+export type { HeadingProps } from "./components/ui/heading";
+
+export { Text, textVariants } from "./components/ui/text";
+export type { TextProps } from "./components/ui/text";
+export type { GridProps, GridColumnProps } from "./components/ui/grid";
+
+export { Stack, stackVariants } from "./components/ui/stack";
+export type { StackProps } from "./components/ui/stack";
 
 export { Calendar, CalendarDayButton } from "./components/ui/calendar";
 

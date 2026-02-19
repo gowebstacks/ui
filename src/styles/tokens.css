@@ -196,3 +196,48 @@
   --sidebar-border: var(--token-border-subtle);
   --sidebar-ring: var(--token-border-primary);
 }
+
+.dark {
+  --background: var(--token-bg-background);
+  --foreground: var(--token-text-heading);
+
+  --card: var(--token-bg-card);
+  --card-foreground: var(--token-text-heading);
+
+  --popover: var(--token-bg-card);
+  --popover-foreground: var(--token-text-heading);
+
+  --primary: var(--token-bg-button-primary);
+  --primary-foreground: var(--token-text-button);
+
+  --secondary: var(--token-bg-secondary-background);
+  --secondary-foreground: var(--token-text-secondary-button);
+
+  --muted: var(--token-bg-muted);
+  --muted-foreground: var(--token-text-muted);
+
+  --accent: var(--token-bg-surface-elevated);
+  --accent-foreground: var(--token-text-heading);
+
+  --destructive: var(--color-error-400);
+  --destructive-foreground: var(--color-white);
+
+  --border: var(--token-border-subtle);
+  --input: var(--token-border-input);
+  --ring: var(--token-border-primary);
+
+  --chart-1: var(--color-blue-400);
+  --chart-2: var(--color-teal-300);
+  --chart-3: var(--color-mint-300);
+  --chart-4: var(--color-purple-400);
+  --chart-5: var(--color-orange-400);
+
+  --sidebar-background: var(--token-bg-background);
+  --sidebar-foreground: var(--token-text-body);
+  --sidebar-primary: var(--token-bg-button-primary);
+  --sidebar-primary-foreground: var(--token-text-button);
+  --sidebar-accent: var(--token-bg-surface-elevated);
+  --sidebar-accent-foreground: var(--token-text-heading);
+  --sidebar-border: var(--token-border-subtle);
+  --sidebar-ring: var(--token-border-primary);
+}
