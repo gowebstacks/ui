@@ -14,12 +14,14 @@ function Calendar({
   classNames,
   showOutsideDays = true,
   captionLayout = "label",
-  buttonVariant = "ghost",
+  buttonMode = "bleed",
+  buttonTone = "primary",
   formatters,
   components,
   ...props
 }: React.ComponentProps<typeof DayPicker> & {
-  buttonVariant?: React.ComponentProps<typeof Button>["variant"]
+  buttonMode?: React.ComponentProps<typeof Button>["mode"]
+  buttonTone?: React.ComponentProps<typeof Button>["tone"]
 }) {
   const defaultClassNames = getDefaultClassNames()
 
@@ -50,12 +52,12 @@ function Calendar({
           defaultClassNames.nav
         ),
         button_previous: cn(
-          buttonVariants({ variant: buttonVariant }),
+          buttonVariants({ mode: buttonMode, tone: buttonTone }),
           "h-[--cell-size] w-[--cell-size] select-none p-0 aria-disabled:opacity-50",
           defaultClassNames.button_previous
         ),
         button_next: cn(
-          buttonVariants({ variant: buttonVariant }),
+          buttonVariants({ mode: buttonMode, tone: buttonTone }),
           "h-[--cell-size] w-[--cell-size] select-none p-0 aria-disabled:opacity-50",
           defaultClassNames.button_next
         ),
@@ -186,7 +188,7 @@ function CalendarDayButton({
   return (
     <Button
       ref={ref}
-      variant="ghost"
+      mode="bleed"
       size="icon"
       data-day={day.date.toLocaleDateString()}
       data-selected-single={

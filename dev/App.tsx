@@ -279,7 +279,7 @@ export default function App() {
                   <p className="text-xs mb-2">Horizontal, space-between</p>
                   <Stack direction="horizontal" gap="normal" justify="space-between" className="w-full">
                     <Button>Left</Button>
-                    <Button variant="outline">Right</Button>
+                    <Button mode="stroke" tone="secondary">Right</Button>
                   </Stack>
                 </div>
                 <div>
@@ -316,15 +316,15 @@ export default function App() {
             <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Button">
               <div className="flex flex-wrap gap-3">
                 <Button>Default</Button>
-                <Button variant="secondary">Secondary</Button>
-                <Button variant="destructive">Destructive</Button>
-                <Button variant="outline">Outline</Button>
-                <Button variant="ghost">Ghost</Button>
-                <Button variant="link">Link</Button>
+                <Button mode="filled" tone="secondary">Secondary</Button>
+                <Button mode="stroke" tone="primary">Stroke Primary</Button>
+                <Button mode="stroke" tone="secondary">Stroke Secondary</Button>
+                <Button mode="bleed">Bleed</Button>
+                <Button mode="link">Link</Button>
               </div>
               <div className="flex flex-wrap gap-3">
                 <Button size="sm">Small</Button>
-                <Button size="default">Default</Button>
+                <Button size="md">Medium</Button>
                 <Button size="lg">Large</Button>
                 <Button disabled>Disabled</Button>
               </div>
@@ -352,7 +352,7 @@ export default function App() {
                     <p>Card content goes here. This is a basic card component.</p>
                   </CardContent>
                   <CardFooter className="flex justify-between">
-                    <Button variant="outline">Cancel</Button>
+                    <Button mode="stroke" tone="secondary">Cancel</Button>
                     <Button>Submit</Button>
                   </CardFooter>
                 </Card>
@@ -647,7 +647,7 @@ export default function App() {
               <div className="flex gap-3">
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button variant="outline">Open Dialog</Button>
+                    <Button mode="stroke" tone="secondary">Open Dialog</Button>
                   </DialogTrigger>
                   <DialogContent>
                     <DialogHeader>
@@ -668,7 +668,7 @@ export default function App() {
 
                 <AlertDialog>
                   <AlertDialogTrigger asChild>
-                    <Button variant="destructive">Delete Account</Button>
+                    <Button mode="filled" tone="secondary">Delete Account</Button>
                   </AlertDialogTrigger>
                   <AlertDialogContent>
                     <AlertDialogHeader>
@@ -691,7 +691,7 @@ export default function App() {
             <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Dropdown Menu">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="outline">Open Menu</Button>
+                  <Button mode="stroke" tone="secondary">Open Menu</Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
                   <DropdownMenuLabel>My Account</DropdownMenuLabel>
@@ -709,7 +709,7 @@ export default function App() {
               <div className="flex gap-6">
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button variant="outline">Hover me (Tooltip)</Button>
+                    <Button mode="stroke" tone="secondary">Hover me (Tooltip)</Button>
                   </TooltipTrigger>
                   <TooltipContent>
                     <p>This is a tooltip</p>
@@ -718,7 +718,7 @@ export default function App() {
 
                 <HoverCard>
                   <HoverCardTrigger asChild>
-                    <Button variant="link">Hover me (HoverCard)</Button>
+                    <Button mode="link">Hover me (HoverCard)</Button>
                   </HoverCardTrigger>
                   <HoverCardContent className="w-80">
                     <div className="flex gap-4">
@@ -741,7 +741,7 @@ export default function App() {
             <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Popover">
               <Popover>
                 <PopoverTrigger asChild>
-                  <Button variant="outline">Open Popover</Button>
+                  <Button mode="stroke" tone="secondary">Open Popover</Button>
                 </PopoverTrigger>
                 <PopoverContent className="w-80">
                   <div className="space-y-3">
@@ -765,7 +765,7 @@ export default function App() {
             <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Sheet">
               <Sheet>
                 <SheetTrigger asChild>
-                  <Button variant="outline">Open Sheet</Button>
+                  <Button mode="stroke" tone="secondary">Open Sheet</Button>
                 </SheetTrigger>
                 <SheetContent>
                   <SheetHeader>
