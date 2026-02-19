@@ -1,0 +1,198 @@
+/**
+ * Semantic Design Tokens
+ * Maps the Webstacks design system to shadcn/ui CSS variables.
+ *
+ * Layer 1: --color-* primitives (color.css)
+ * Layer 2: --token-* semantic tokens (this file, :root / .dark / .light)
+ * Layer 3: shadcn variables (--background, --primary, etc.) mapped from --token-*
+ */
+
+/* ==========================================================================
+   SEMANTIC TOKENS — :root (light) and .dark overrides
+   ========================================================================== */
+
+:root {
+  /* ── Text ── */
+  --token-text-heading: var(--color-black);
+  --token-text-body: var(--color-neutral-700);
+  --token-text-eyebrow: var(--color-black);
+  --token-text-link: var(--color-black);
+  --token-text-link-hover: var(--color-blue-900);
+  --token-text-hyperlink: var(--color-blue-700);
+  --token-text-hyperlink-hover: var(--color-blue-900);
+  --token-text-button: var(--color-white);
+  --token-text-button-hover: var(--color-white);
+  --token-text-secondary-button: var(--color-black);
+  --token-text-disabled: var(--color-neutral-600);
+  --token-text-placeholder: var(--color-neutral-800);
+  --token-text-nav-item: var(--color-black);
+  --token-text-muted: var(--color-neutral-400);
+  --token-text-subtle: var(--color-neutral-500);
+  --token-text-faint: var(--color-neutral-600);
+  --token-text-on-dark: var(--color-white);
+  --token-text-on-light: var(--color-black);
+  --token-text-inverse: var(--color-white);
+
+  /* ── Surface / Background ── */
+  --token-bg-background: var(--color-white);
+  --token-bg-secondary-background: var(--color-neutral-200);
+  --token-bg-card: var(--color-white);
+  --token-bg-button-primary: var(--color-blue-700);
+  --token-bg-button-primary-hover: var(--color-blue-900);
+  --token-bg-button-secondary: var(--color-white);
+  --token-bg-button-secondary-hover: var(--color-neutral-200);
+  --token-bg-disabled: var(--color-neutral-400);
+  --token-bg-input: var(--color-white);
+  --token-bg-card-hover: var(--color-neutral-100);
+  --token-bg-surface-elevated: var(--color-neutral-100);
+  --token-bg-surface-sunken: var(--color-neutral-200);
+  --token-bg-overlay: var(--color-alpha-black-50);
+  --token-bg-muted: var(--color-neutral-100);
+
+  /* ── Icon ── */
+  --token-icon-primary: var(--color-blue-700);
+  --token-icon-button: var(--color-white);
+  --token-icon-muted: var(--color-neutral-800);
+  --token-icon-subtle: var(--color-neutral-500);
+
+  /* ── Border / Stroke ── */
+  --token-border-primary: var(--color-blue-600);
+  --token-border-secondary: var(--color-alpha-black-5);
+  --token-border-card: var(--color-neutral-500);
+  --token-border-input: var(--color-neutral-500);
+  --token-border-subtle: var(--color-neutral-200);
+  --token-border-strong: var(--color-neutral-700);
+  --token-border-muted: var(--color-neutral-300);
+
+  /* ── Semantic state ── */
+  --token-bg-success: var(--color-success-50);
+  --token-bg-warning: var(--color-warning-50);
+  --token-bg-error: var(--color-error-50);
+  --token-text-success: var(--color-success-700);
+  --token-text-warning: var(--color-warning-700);
+  --token-text-error: var(--color-error-700);
+
+  /* ── Logo ── */
+  --token-logo-icon: var(--color-blue-600);
+  --token-logo-text: var(--color-black);
+}
+
+.dark {
+  /* ── Text ── */
+  --token-text-heading: var(--color-white);
+  --token-text-body: var(--color-neutral-200);
+  --token-text-eyebrow: var(--color-white);
+  --token-text-link: var(--color-white);
+  --token-text-link-hover: var(--color-blue-600);
+  --token-text-hyperlink: var(--color-blue-600);
+  --token-text-hyperlink-hover: var(--color-blue-800);
+  --token-text-button: var(--color-white);
+  --token-text-button-hover: var(--color-white);
+  --token-text-secondary-button: var(--color-white);
+  --token-text-disabled: var(--color-neutral-500);
+  --token-text-placeholder: var(--color-neutral-500);
+  --token-text-nav-item: var(--color-white);
+  --token-text-muted: var(--color-neutral-400);
+  --token-text-subtle: var(--color-neutral-500);
+  --token-text-faint: var(--color-neutral-600);
+  --token-text-on-dark: var(--color-white);
+  --token-text-on-light: var(--color-black);
+  --token-text-inverse: var(--color-black);
+
+  /* ── Surface / Background ── */
+  --token-bg-background: var(--color-black);
+  --token-bg-secondary-background: var(--color-neutral-900);
+  --token-bg-card: var(--color-black);
+  --token-bg-button-primary: var(--color-blue-700);
+  --token-bg-button-primary-hover: var(--color-blue-900);
+  --token-bg-button-secondary: var(--color-black);
+  --token-bg-button-secondary-hover: var(--color-neutral-100);
+  --token-bg-disabled: var(--color-neutral-600);
+  --token-bg-input: var(--color-neutral-950);
+  --token-bg-card-hover: var(--color-neutral-900);
+  --token-bg-surface-elevated: var(--color-neutral-900);
+  --token-bg-surface-sunken: var(--color-neutral-950);
+  --token-bg-overlay: var(--color-alpha-black-60);
+  --token-bg-muted: var(--color-neutral-900);
+
+  /* ── Icon ── */
+  --token-icon-primary: var(--color-blue-600);
+  --token-icon-button: var(--color-white);
+  --token-icon-muted: var(--color-neutral-500);
+  --token-icon-subtle: var(--color-neutral-300);
+
+  /* ── Border / Stroke ── */
+  --token-border-primary: var(--color-blue-600);
+  --token-border-secondary: var(--color-neutral-900);
+  --token-border-card: var(--color-neutral-700);
+  --token-border-input: var(--color-neutral-900);
+  --token-border-subtle: var(--color-neutral-800);
+  --token-border-strong: var(--color-neutral-300);
+  --token-border-muted: var(--color-neutral-700);
+
+  /* ── Semantic state ── */
+  --token-bg-success: var(--color-success-900);
+  --token-bg-warning: var(--color-warning-900);
+  --token-bg-error: var(--color-alpha-error);
+  --token-text-success: var(--color-success-200);
+  --token-text-warning: var(--color-warning-200);
+  --token-text-error: var(--color-error-300);
+
+  /* ── Logo ── */
+  --token-logo-icon: var(--color-blue-600);
+  --token-logo-text: var(--color-white);
+}
+
+/* ==========================================================================
+   SHADCN BRIDGE — maps --token-* to shadcn's expected CSS variables
+   shadcn components use these variables internally (e.g. bg-background,
+   text-primary, border-border, etc.)
+   ========================================================================== */
+
+:root {
+  --background: var(--token-bg-background);
+  --foreground: var(--token-text-heading);
+
+  --card: var(--token-bg-card);
+  --card-foreground: var(--token-text-heading);
+
+  --popover: var(--token-bg-card);
+  --popover-foreground: var(--token-text-heading);
+
+  --primary: var(--token-bg-button-primary);
+  --primary-foreground: var(--token-text-button);
+
+  --secondary: var(--token-bg-secondary-background);
+  --secondary-foreground: var(--token-text-secondary-button);
+
+  --muted: var(--token-bg-muted);
+  --muted-foreground: var(--token-text-muted);
+
+  --accent: var(--token-bg-surface-elevated);
+  --accent-foreground: var(--token-text-heading);
+
+  --destructive: var(--color-error-600);
+  --destructive-foreground: var(--color-white);
+
+  --border: var(--token-border-subtle);
+  --input: var(--token-border-input);
+  --ring: var(--token-border-primary);
+
+  --radius: 0.5rem;
+
+  --chart-1: var(--color-blue-600);
+  --chart-2: var(--color-teal-500);
+  --chart-3: var(--color-mint-500);
+  --chart-4: var(--color-purple-500);
+  --chart-5: var(--color-orange-500);
+
+  /* Sidebar */
+  --sidebar-background: var(--token-bg-background);
+  --sidebar-foreground: var(--token-text-body);
+  --sidebar-primary: var(--token-bg-button-primary);
+  --sidebar-primary-foreground: var(--token-text-button);
+  --sidebar-accent: var(--token-bg-surface-elevated);
+  --sidebar-accent-foreground: var(--token-text-heading);
+  --sidebar-border: var(--token-border-subtle);
+  --sidebar-ring: var(--token-border-primary);
+}
