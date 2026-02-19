@@ -1,6 +1,6 @@
 {
   "name": "@webstacks/ui",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A shareable React component library",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -98,7 +98,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/gowebstacks/ui.git"
   },
   "keywords": [
     "react",
