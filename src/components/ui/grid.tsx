@@ -83,6 +83,36 @@ const columnMap: Record<number, string> = {
   12: "grid-cols-12",
 }
 
+const mdColumnMap: Record<number, string> = {
+  1: "md:grid-cols-1",
+  2: "md:grid-cols-2",
+  3: "md:grid-cols-3",
+  4: "md:grid-cols-4",
+  5: "md:grid-cols-5",
+  6: "md:grid-cols-6",
+  7: "md:grid-cols-7",
+  8: "md:grid-cols-8",
+  9: "md:grid-cols-9",
+  10: "md:grid-cols-10",
+  11: "md:grid-cols-11",
+  12: "md:grid-cols-12",
+}
+
+const lgColumnMap: Record<number, string> = {
+  1: "lg:grid-cols-1",
+  2: "lg:grid-cols-2",
+  3: "lg:grid-cols-3",
+  4: "lg:grid-cols-4",
+  5: "lg:grid-cols-5",
+  6: "lg:grid-cols-6",
+  7: "lg:grid-cols-7",
+  8: "lg:grid-cols-8",
+  9: "lg:grid-cols-9",
+  10: "lg:grid-cols-10",
+  11: "lg:grid-cols-11",
+  12: "lg:grid-cols-12",
+}
+
 export interface GridProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, "columns">,
     Omit<VariantProps<typeof gridVariants>, "columns"> {
@@ -99,8 +129,8 @@ const Grid = React.forwardRef<HTMLDivElement, GridProps>(
     } else {
       const classes: string[] = []
       if (columns.narrow) classes.push(columnMap[columns.narrow])
-      if (columns.regular) classes.push(`md:${columnMap[columns.regular]}`)
-      if (columns.wide) classes.push(`lg:${columnMap[columns.wide]}`)
+      if (columns.regular) classes.push(mdColumnMap[columns.regular])
+      if (columns.wide) classes.push(lgColumnMap[columns.wide])
       columnClasses = classes.join(" ")
     }
 
@@ -178,6 +208,36 @@ const spanMap: Record<number, string> = {
   12: "col-span-12",
 }
 
+const mdSpanMap: Record<number, string> = {
+  1: "md:col-span-1",
+  2: "md:col-span-2",
+  3: "md:col-span-3",
+  4: "md:col-span-4",
+  5: "md:col-span-5",
+  6: "md:col-span-6",
+  7: "md:col-span-7",
+  8: "md:col-span-8",
+  9: "md:col-span-9",
+  10: "md:col-span-10",
+  11: "md:col-span-11",
+  12: "md:col-span-12",
+}
+
+const lgSpanMap: Record<number, string> = {
+  1: "lg:col-span-1",
+  2: "lg:col-span-2",
+  3: "lg:col-span-3",
+  4: "lg:col-span-4",
+  5: "lg:col-span-5",
+  6: "lg:col-span-6",
+  7: "lg:col-span-7",
+  8: "lg:col-span-8",
+  9: "lg:col-span-9",
+  10: "lg:col-span-10",
+  11: "lg:col-span-11",
+  12: "lg:col-span-12",
+}
+
 export interface GridColumnProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, "start">,
     Omit<VariantProps<typeof gridColumnVariants>, "span" | "start"> {
@@ -195,8 +255,8 @@ const GridColumn = React.forwardRef<HTMLDivElement, GridColumnProps>(
     } else if (span) {
       const classes: string[] = []
       if (span.narrow) classes.push(spanMap[span.narrow])
-      if (span.regular) classes.push(`md:${spanMap[span.regular]}`)
-      if (span.wide) classes.push(`lg:${spanMap[span.wide]}`)
+      if (span.regular) classes.push(mdSpanMap[span.regular])
+      if (span.wide) classes.push(lgSpanMap[span.wide])
       spanClasses = classes.join(" ")
     } else {
       spanClasses = ""

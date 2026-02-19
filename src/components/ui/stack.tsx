@@ -66,6 +66,14 @@ const directionMap: Record<string, string> = {
   horizontal: "flex-row",
   vertical: "flex-col",
 }
+const mdDirectionMap: Record<string, string> = {
+  horizontal: "md:flex-row",
+  vertical: "md:flex-col",
+}
+const lgDirectionMap: Record<string, string> = {
+  horizontal: "lg:flex-row",
+  vertical: "lg:flex-col",
+}
 
 const gapMap: Record<string, string> = {
   none: "gap-0",
@@ -74,6 +82,20 @@ const gapMap: Record<string, string> = {
   spacious: "gap-6",
   "extra-spacious": "gap-8",
 }
+const mdGapMap: Record<string, string> = {
+  none: "md:gap-0",
+  condensed: "md:gap-2",
+  normal: "md:gap-4",
+  spacious: "md:gap-6",
+  "extra-spacious": "md:gap-8",
+}
+const lgGapMap: Record<string, string> = {
+  none: "lg:gap-0",
+  condensed: "lg:gap-2",
+  normal: "lg:gap-4",
+  spacious: "lg:gap-6",
+  "extra-spacious": "lg:gap-8",
+}
 
 const alignMap: Record<string, string> = {
   start: "items-start",
@@ -81,6 +103,20 @@ const alignMap: Record<string, string> = {
   end: "items-end",
   stretch: "items-stretch",
   baseline: "items-baseline",
+}
+const mdAlignMap: Record<string, string> = {
+  start: "md:items-start",
+  center: "md:items-center",
+  end: "md:items-end",
+  stretch: "md:items-stretch",
+  baseline: "md:items-baseline",
+}
+const lgAlignMap: Record<string, string> = {
+  start: "lg:items-start",
+  center: "lg:items-center",
+  end: "lg:items-end",
+  stretch: "lg:items-stretch",
+  baseline: "lg:items-baseline",
 }
 
 const justifyMap: Record<string, string> = {
@@ -91,21 +127,44 @@ const justifyMap: Record<string, string> = {
   "space-around": "justify-around",
   "space-evenly": "justify-evenly",
 }
+const mdJustifyMap: Record<string, string> = {
+  start: "md:justify-start",
+  center: "md:justify-center",
+  end: "md:justify-end",
+  "space-between": "md:justify-between",
+  "space-around": "md:justify-around",
+  "space-evenly": "md:justify-evenly",
+}
+const lgJustifyMap: Record<string, string> = {
+  start: "lg:justify-start",
+  center: "lg:justify-center",
+  end: "lg:justify-end",
+  "space-between": "lg:justify-between",
+  "space-around": "lg:justify-around",
+  "space-evenly": "lg:justify-evenly",
+}
+
+type ResponsiveMaps = { narrow: Record<string, string>; regular: Record<string, string>; wide: Record<string, string> }
 
 function resolveResponsive<T extends string>(
   value: T | ResponsiveProp<T> | undefined,
-  map: Record<string, string>
+  maps: ResponsiveMaps
 ): string[] {
   if (!value) return []
-  if (typeof value === "string") return [map[value]].filter(Boolean)
+  if (typeof value === "string") return [maps.narrow[value]].filter(Boolean)
 
   const classes: string[] = []
-  const prefixes = { narrow: "", regular: "md:", wide: "lg:" }
-  for (const [bp, val] of Object.entries(value)) {
-    if (val && map[val as string]) {
-      const prefix = prefixes[bp as keyof typeof prefixes] || ""
-      classes.push(`${prefix}${map[val as string]}`)
-    }
+  if ((value as ResponsiveProp<T>).narrow) {
+    const cls = maps.narrow[(value as ResponsiveProp<T>).narrow as string]
+    if (cls) classes.push(cls)
+  }
+  if ((value as ResponsiveProp<T>).regular) {
+    const cls = maps.regular[(value as ResponsiveProp<T>).regular as string]
+    if (cls) classes.push(cls)
+  }
+  if ((value as ResponsiveProp<T>).wide) {
+    const cls = maps.wide[(value as ResponsiveProp<T>).wide as string]
+    if (cls) classes.push(cls)
   }
   return classes
 }
@@ -136,10 +195,10 @@ const Stack = React.forwardRef<HTMLElement, StackProps>(
     ref
   ) => {
     const responsiveClasses = [
-      ...resolveResponsive(direction, directionMap),
-      ...resolveResponsive(gap, gapMap),
-      ...resolveResponsive(align, alignMap),
-      ...resolveResponsive(justify, justifyMap),
+      ...resolveResponsive(direction, { narrow: directionMap, regular: mdDirectionMap, wide: lgDirectionMap }),
+      ...resolveResponsive(gap, { narrow: gapMap, regular: mdGapMap, wide: lgGapMap }),
+      ...resolveResponsive(align, { narrow: alignMap, regular: mdAlignMap, wide: lgAlignMap }),
+      ...resolveResponsive(justify, { narrow: justifyMap, regular: mdJustifyMap, wide: lgJustifyMap }),
     ]
 
     const isResponsiveDirection = typeof direction === "object"
