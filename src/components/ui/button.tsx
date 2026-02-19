@@ -48,7 +48,7 @@ const buttonVariants = cva(
         mode: "filled",
         tone: "secondary",
         className:
-          "bg-foreground text-background dark:bg-background dark:text-foreground dark:border dark:border-border",
+          "bg-foreground text-background",
       },
       {
         mode: "filled",
@@ -68,7 +68,7 @@ const buttonVariants = cva(
         mode: "stroke",
         tone: "secondary",
         className:
-          "border-border text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary",
+          "border-border text-foreground hover:bg-border hover:text-foreground",
       },
       {
         mode: "stroke",
