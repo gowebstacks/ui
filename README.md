@@ -27,23 +27,41 @@ This package includes:
 
 ## Usage
 
-Import components directly from the package:
+### 1. Add the theme to your CSS
 
-```tsx
-import { Button } from "@webstacks/ui";
+In your app's main CSS file (e.g. `index.css`), import Tailwind and the `@webstacks/ui` theme:
 
-function App() {
-  return <Button>Hello world</Button>;
-}
+```css
+@import "tailwindcss";
+@import "@webstacks/ui/theme";
 ```
 
-At the root of your application, wrap your content with the `BaseStyles` component. This injects all design tokens, fonts, color primitives, and base styles:
+This registers all design tokens, fonts, colors, and component classes with Tailwind v4 at build time. No other CSS imports are needed.
+
+### 2. Wrap your app with BaseStyles
+
+At the root of your application, wrap your content with `BaseStyles` to activate the design tokens at runtime:
 
 ```tsx
 import { BaseStyles } from "@webstacks/ui";
 
 function RootLayout({ children }) {
   return <BaseStyles>{children}</BaseStyles>;
+}
+```
+
+### 3. Use components
+
+```tsx
+import { Button, Heading, Section } from "@webstacks/ui";
+
+function App() {
+  return (
+    <Section paddingBlockStart="spacious" paddingBlockEnd="spacious">
+      <Heading as="h1" size="display">Hello world</Heading>
+      <Button>Get Started</Button>
+    </Section>
+  );
 }
 ```
 
@@ -60,14 +78,6 @@ function RootLayout({ children }) {
 
 // Follow system preference
 <BaseStyles colorMode="auto">
-```
-
-### Alternative: manual CSS import
-
-If you prefer not to use `BaseStyles`, you can import the styles directly in your entry point:
-
-```tsx
-import "@webstacks/ui/styles.css";
 ```
 
 ## Components
