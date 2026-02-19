@@ -1,0 +1,95 @@
+/**
+ * Font Face Declarations
+ * Saans (primary/secondary/accent) + TT Interphases Pro Mono
+ */
+
+/* ── Saans ── */
+@font-face {
+  font-family: "Saans";
+  src: url("../fonts/Saans Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Saans";
+  src: url("../fonts/Saans Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Saans";
+  src: url("../fonts/Saans Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Saans";
+  src: url("../fonts/Saans SemiBold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Saans";
+  src: url("../fonts/Saans Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── TT Interphases Pro Mono ── */
+@font-face {
+  font-family: "TT Interphases Pro Mono";
+  src: url("../fonts/TT_Interphases_Pro_Mono_Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TT Interphases Pro Mono";
+  src: url("../fonts/TT_Interphases_Pro_Mono_Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TT Interphases Pro Mono";
+  src: url("../fonts/TT_Interphases_Pro_Mono_Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TT Interphases Pro Mono";
+  src: url("../fonts/TT_Interphases_Pro_Mono_Bold_Italic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ── Semantic Font Variables ── */
+:root {
+  --font-primary: "Saans";
+  --font-secondary: "Saans";
+  --font-accent: "Saans";
+  --font-mono: "TT Interphases Pro Mono";
+
+  --font-body: var(--font-primary), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-secondary), ui-sans-serif, system-ui, sans-serif;
+  --font-heading-display: var(--font-secondary), ui-sans-serif, system-ui, sans-serif;
+  --font-heading-accent: var(--font-accent), ui-sans-serif, system-ui, sans-serif;
+  --font-eyebrow: var(--font-mono), ui-monospace, SFMono-Regular, monospace;
+  --font-ui: var(--font-primary), ui-sans-serif, system-ui, sans-serif;
+  --font-caption: var(--font-primary), ui-sans-serif, system-ui, sans-serif;
+  --font-code: var(--font-mono), ui-monospace, SFMono-Regular, monospace;
+}

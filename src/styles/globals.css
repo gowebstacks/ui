@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Design system: primitives → semantic tokens → shadcn bridge */
+/* Design system: fonts → primitives → semantic tokens → shadcn bridge → typography */
+@import "./fonts.css";
 @import "./color.css";
 @import "./tokens.css";
+@import "./typography.css";

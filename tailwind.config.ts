@@ -57,6 +57,16 @@ const config: Config = {
           ring: "var(--sidebar-ring)",
         },
       },
+      fontFamily: {
+        body: ["var(--font-body)"],
+        heading: ["var(--font-heading)"],
+        "heading-display": ["var(--font-heading-display)"],
+        "heading-accent": ["var(--font-heading-accent)"],
+        eyebrow: ["var(--font-eyebrow)"],
+        ui: ["var(--font-ui)"],
+        caption: ["var(--font-caption)"],
+        mono: ["var(--font-code)"],
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
