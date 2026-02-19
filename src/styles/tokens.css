@@ -47,7 +47,7 @@
   --token-bg-surface-elevated: var(--color-neutral-100);
   --token-bg-surface-sunken: var(--color-neutral-200);
   --token-bg-overlay: var(--color-alpha-black-50);
-  --token-bg-muted: var(--color-neutral-100);
+  --token-bg-muted: var(--color-neutral-50);
 
   /* ── Icon ── */
   --token-icon-primary: var(--color-blue-700);
@@ -113,7 +113,7 @@
   --token-bg-surface-elevated: var(--color-neutral-900);
   --token-bg-surface-sunken: var(--color-neutral-950);
   --token-bg-overlay: var(--color-alpha-black-60);
-  --token-bg-muted: var(--color-neutral-900);
+  --token-bg-muted: var(--color-neutral-950);
 
   /* ── Icon ── */
   --token-icon-primary: var(--color-blue-600);
