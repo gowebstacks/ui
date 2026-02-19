@@ -9,9 +9,9 @@ const buttonVariants = cva(
   {
     variants: {
       mode: {
-        filled: "",
-        stroke: "bg-transparent border",
-        bleed: "!bg-transparent border-0 !rounded hover:!bg-foreground/5 disabled:opacity-50",
+        filled: "hover:brightness-110 active:brightness-95 disabled:opacity-50",
+        stroke: "bg-transparent border disabled:opacity-50",
+        bleed: "bg-transparent border-0 rounded hover:bg-accent disabled:opacity-50",
         link: "disabled:opacity-50",
       },
       tone: {
@@ -42,19 +42,19 @@ const buttonVariants = cva(
         mode: "filled",
         tone: "primary",
         className:
-          "bg-primary text-primary-foreground hover:bg-primary/90 disabled:opacity-50",
+          "bg-primary text-primary-foreground",
       },
       {
         mode: "filled",
         tone: "secondary",
         className:
-          "bg-foreground text-background hover:bg-foreground/90 dark:bg-background dark:text-foreground dark:hover:bg-background/90 dark:border dark:border-border disabled:opacity-50",
+          "bg-foreground text-background dark:bg-background dark:text-foreground dark:border dark:border-border",
       },
       {
         mode: "filled",
         tone: "tertiary",
         className:
-          "bg-muted text-foreground hover:bg-muted/80 disabled:opacity-50",
+          "bg-muted text-foreground",
       },
 
       /* ── Stroke ── */
@@ -62,19 +62,19 @@ const buttonVariants = cva(
         mode: "stroke",
         tone: "primary",
         className:
-          "border-primary text-primary hover:bg-primary hover:text-primary-foreground disabled:opacity-50",
+          "border-primary text-primary hover:bg-primary hover:text-primary-foreground",
       },
       {
         mode: "stroke",
         tone: "secondary",
         className:
-          "border-border text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary disabled:opacity-50",
+          "border-border text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary",
       },
       {
         mode: "stroke",
         tone: "tertiary",
         className:
-          "border-border text-foreground hover:bg-accent disabled:opacity-50",
+          "border-border text-foreground hover:bg-accent",
       },
 
       /* ── Bleed ── */

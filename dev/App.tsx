@@ -118,6 +118,108 @@ import {
   SheetTrigger,
 } from "../src/components/ui/sheet";
 import { ScrollArea } from "../src/components/ui/scroll-area";
+import { AspectRatio } from "../src/components/ui/aspect-ratio";
+import { Calendar } from "../src/components/ui/calendar";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "../src/components/ui/carousel";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "../src/components/ui/collapsible";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+} from "../src/components/ui/command";
+import {
+  ContextMenu,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuSeparator,
+  ContextMenuTrigger,
+} from "../src/components/ui/context-menu";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "../src/components/ui/drawer";
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+  InputOTPSeparator,
+} from "../src/components/ui/input-otp";
+import {
+  Menubar,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarSeparator,
+  MenubarTrigger,
+} from "../src/components/ui/menubar";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "../src/components/ui/navigation-menu";
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "../src/components/ui/resizable";
+import { ToggleGroup, ToggleGroupItem } from "../src/components/ui/toggle-group";
+import { Toaster as Sonner } from "../src/components/ui/sonner";
+import { toast } from "sonner";
+import {
+  ButtonGroup,
+  ButtonGroupSeparator,
+} from "../src/components/ui/button-group";
+import {
+  Empty,
+  EmptyHeader,
+  EmptyTitle,
+  EmptyDescription,
+  EmptyMedia,
+} from "../src/components/ui/empty";
+import {
+  Field,
+  FieldLabel,
+  FieldDescription,
+  FieldContent,
+} from "../src/components/ui/field";
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+} from "../src/components/ui/input-group";
+import {
+  Item,
+  ItemContent,
+  ItemTitle,
+  ItemDescription,
+  ItemGroup,
+  ItemSeparator,
+} from "../src/components/ui/item";
+import { Kbd } from "../src/components/ui/kbd";
+import { Spinner } from "../src/components/ui/spinner";
 import { Box } from "../src/components/ui/box";
 import { Heading } from "../src/components/ui/heading";
 import { Text } from "../src/components/ui/text";
@@ -327,6 +429,122 @@ export default function App() {
                 <Button size="md">Medium</Button>
                 <Button size="lg">Large</Button>
                 <Button disabled>Disabled</Button>
+              </div>
+            </Section>
+
+            {/* Button Group */}
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Button Group">
+              <div className="space-y-4">
+                <ButtonGroup>
+                  <Button mode="stroke" tone="secondary">Left</Button>
+                  <ButtonGroupSeparator />
+                  <Button mode="stroke" tone="secondary">Center</Button>
+                  <ButtonGroupSeparator />
+                  <Button mode="stroke" tone="secondary">Right</Button>
+                </ButtonGroup>
+              </div>
+            </Section>
+
+            {/* Kbd */}
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Kbd">
+              <div className="flex items-center gap-4">
+                <Kbd>⌘</Kbd>
+                <Kbd>K</Kbd>
+                <span className="text-sm text-muted-foreground">or</span>
+                <Kbd>Ctrl</Kbd>
+                <span className="text-sm text-muted-foreground">+</span>
+                <Kbd>Shift</Kbd>
+                <span className="text-sm text-muted-foreground">+</span>
+                <Kbd>P</Kbd>
+              </div>
+            </Section>
+
+            {/* Spinner */}
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Spinner">
+              <div className="flex items-center gap-6">
+                <Spinner />
+                <Spinner className="size-6" />
+                <Spinner className="size-8" />
+                <div className="flex items-center gap-2">
+                  <Spinner />
+                  <span className="text-sm text-muted-foreground">Loading...</span>
+                </div>
+              </div>
+            </Section>
+
+            {/* Empty */}
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Empty">
+              <Empty className="border">
+                <EmptyHeader>
+                  <EmptyMedia variant="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
+                  </EmptyMedia>
+                  <EmptyTitle>No files found</EmptyTitle>
+                  <EmptyDescription>Upload a file to get started.</EmptyDescription>
+                </EmptyHeader>
+                <Button mode="stroke" tone="secondary" size="sm">Upload File</Button>
+              </Empty>
+            </Section>
+
+            {/* Field */}
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Field">
+              <div className="max-w-sm space-y-6">
+                <Field>
+                  <FieldLabel>Username</FieldLabel>
+                  <FieldContent>
+                    <Input placeholder="Enter username" />
+                    <FieldDescription>This is your public display name.</FieldDescription>
+                  </FieldContent>
+                </Field>
+              </div>
+            </Section>
+
+            {/* Input Group */}
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Input Group">
+              <div className="max-w-sm space-y-4">
+                <InputGroup>
+                  <InputGroupAddon align="inline-start">
+                    <span className="text-muted-foreground">https://</span>
+                  </InputGroupAddon>
+                  <InputGroupInput placeholder="example.com" />
+                </InputGroup>
+                <InputGroup>
+                  <InputGroupAddon align="inline-start">
+                    <span className="text-muted-foreground">$</span>
+                  </InputGroupAddon>
+                  <InputGroupInput placeholder="0.00" />
+                  <InputGroupAddon align="inline-end">
+                    <span className="text-muted-foreground">USD</span>
+                  </InputGroupAddon>
+                </InputGroup>
+              </div>
+            </Section>
+
+            {/* Item */}
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Item">
+              <div className="max-w-md">
+                <ItemGroup>
+                  <Item>
+                    <ItemContent>
+                      <ItemTitle>First Item</ItemTitle>
+                      <ItemDescription>Description for the first item in the list.</ItemDescription>
+                    </ItemContent>
+                  </Item>
+                  <ItemSeparator />
+                  <Item>
+                    <ItemContent>
+                      <ItemTitle>Second Item</ItemTitle>
+                      <ItemDescription>Description for the second item in the list.</ItemDescription>
+                    </ItemContent>
+                  </Item>
+                  <ItemSeparator />
+                  <Item>
+                    <ItemContent>
+                      <ItemTitle>Third Item</ItemTitle>
+                      <ItemDescription>Description for the third item in the list.</ItemDescription>
+                    </ItemContent>
+                  </Item>
+                </ItemGroup>
               </div>
             </Section>
 
@@ -865,6 +1083,258 @@ export default function App() {
               </ScrollArea>
             </Section>
 
+            {/* Aspect Ratio */}
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Aspect Ratio">
+              <div className="max-w-sm">
+                <AspectRatio ratio={16 / 9} className="bg-muted rounded-md overflow-hidden">
+                  <div className="flex items-center justify-center h-full text-muted-foreground text-sm">
+                    16:9 Aspect Ratio
+                  </div>
+                </AspectRatio>
+              </div>
+            </Section>
+
+            {/* Calendar */}
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Calendar">
+              <Calendar className="rounded-md border border-border w-fit" />
+            </Section>
+
+            {/* Carousel */}
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Carousel">
+              <div className="max-w-sm mx-auto">
+                <Carousel>
+                  <CarouselContent>
+                    {[1, 2, 3, 4, 5].map((i) => (
+                      <CarouselItem key={i}>
+                        <div className="p-1">
+                          <Card>
+                            <CardContent className="flex aspect-square items-center justify-center p-6">
+                              <span className="text-4xl font-semibold">{i}</span>
+                            </CardContent>
+                          </Card>
+                        </div>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <CarouselPrevious />
+                  <CarouselNext />
+                </Carousel>
+              </div>
+            </Section>
+
+            {/* Collapsible */}
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Collapsible">
+              <Collapsible className="max-w-sm space-y-2">
+                <CollapsibleTrigger asChild>
+                  <Button mode="stroke" tone="secondary" size="sm">Toggle Content</Button>
+                </CollapsibleTrigger>
+                <CollapsibleContent className="space-y-2">
+                  <div className="rounded-md border border-border px-4 py-2 text-sm">
+                    Collapsible content item 1
+                  </div>
+                  <div className="rounded-md border border-border px-4 py-2 text-sm">
+                    Collapsible content item 2
+                  </div>
+                </CollapsibleContent>
+              </Collapsible>
+            </Section>
+
+            {/* Command */}
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Command">
+              <Command className="rounded-lg border border-border shadow-md max-w-sm">
+                <CommandInput placeholder="Type a command or search..." />
+                <CommandList>
+                  <CommandEmpty>No results found.</CommandEmpty>
+                  <CommandGroup heading="Suggestions">
+                    <CommandItem>Calendar</CommandItem>
+                    <CommandItem>Search</CommandItem>
+                    <CommandItem>Settings</CommandItem>
+                  </CommandGroup>
+                  <CommandSeparator />
+                  <CommandGroup heading="Settings">
+                    <CommandItem>Profile</CommandItem>
+                    <CommandItem>Billing</CommandItem>
+                    <CommandItem>Notifications</CommandItem>
+                  </CommandGroup>
+                </CommandList>
+              </Command>
+            </Section>
+
+            {/* Context Menu */}
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Context Menu">
+              <ContextMenu>
+                <ContextMenuTrigger className="flex h-32 w-64 items-center justify-center rounded-md border border-dashed border-border text-sm">
+                  Right click here
+                </ContextMenuTrigger>
+                <ContextMenuContent>
+                  <ContextMenuItem>Back</ContextMenuItem>
+                  <ContextMenuItem>Forward</ContextMenuItem>
+                  <ContextMenuItem>Reload</ContextMenuItem>
+                  <ContextMenuSeparator />
+                  <ContextMenuItem>View Source</ContextMenuItem>
+                  <ContextMenuItem>Inspect</ContextMenuItem>
+                </ContextMenuContent>
+              </ContextMenu>
+            </Section>
+
+            {/* Drawer */}
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Drawer">
+              <Drawer>
+                <DrawerTrigger asChild>
+                  <Button mode="stroke" tone="secondary">Open Drawer</Button>
+                </DrawerTrigger>
+                <DrawerContent>
+                  <DrawerHeader>
+                    <DrawerTitle>Edit Profile</DrawerTitle>
+                    <DrawerDescription>Make changes to your profile.</DrawerDescription>
+                  </DrawerHeader>
+                  <div className="p-4">
+                    <p className="text-sm text-muted-foreground">Drawer body content goes here.</p>
+                  </div>
+                  <DrawerFooter>
+                    <Button>Save</Button>
+                    <DrawerClose asChild>
+                      <Button mode="stroke" tone="secondary">Cancel</Button>
+                    </DrawerClose>
+                  </DrawerFooter>
+                </DrawerContent>
+              </Drawer>
+            </Section>
+
+            {/* Input OTP */}
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Input OTP">
+              <InputOTP maxLength={6}>
+                <InputOTPGroup>
+                  <InputOTPSlot index={0} />
+                  <InputOTPSlot index={1} />
+                  <InputOTPSlot index={2} />
+                </InputOTPGroup>
+                <InputOTPSeparator />
+                <InputOTPGroup>
+                  <InputOTPSlot index={3} />
+                  <InputOTPSlot index={4} />
+                  <InputOTPSlot index={5} />
+                </InputOTPGroup>
+              </InputOTP>
+            </Section>
+
+            {/* Menubar */}
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Menubar">
+              <Menubar>
+                <MenubarMenu>
+                  <MenubarTrigger>File</MenubarTrigger>
+                  <MenubarContent>
+                    <MenubarItem>New Tab</MenubarItem>
+                    <MenubarItem>New Window</MenubarItem>
+                    <MenubarSeparator />
+                    <MenubarItem>Print</MenubarItem>
+                  </MenubarContent>
+                </MenubarMenu>
+                <MenubarMenu>
+                  <MenubarTrigger>Edit</MenubarTrigger>
+                  <MenubarContent>
+                    <MenubarItem>Undo</MenubarItem>
+                    <MenubarItem>Redo</MenubarItem>
+                    <MenubarSeparator />
+                    <MenubarItem>Cut</MenubarItem>
+                    <MenubarItem>Copy</MenubarItem>
+                    <MenubarItem>Paste</MenubarItem>
+                  </MenubarContent>
+                </MenubarMenu>
+                <MenubarMenu>
+                  <MenubarTrigger>View</MenubarTrigger>
+                  <MenubarContent>
+                    <MenubarItem>Zoom In</MenubarItem>
+                    <MenubarItem>Zoom Out</MenubarItem>
+                    <MenubarSeparator />
+                    <MenubarItem>Full Screen</MenubarItem>
+                  </MenubarContent>
+                </MenubarMenu>
+              </Menubar>
+            </Section>
+
+            {/* Navigation Menu */}
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Navigation Menu">
+              <NavigationMenu>
+                <NavigationMenuList>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger>Getting Started</NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <div className="grid gap-3 p-4 w-[400px]">
+                        <NavigationMenuLink className="text-sm hover:underline">Introduction</NavigationMenuLink>
+                        <NavigationMenuLink className="text-sm hover:underline">Installation</NavigationMenuLink>
+                        <NavigationMenuLink className="text-sm hover:underline">Typography</NavigationMenuLink>
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <div className="grid gap-3 p-4 w-[400px]">
+                        <NavigationMenuLink className="text-sm hover:underline">Alert Dialog</NavigationMenuLink>
+                        <NavigationMenuLink className="text-sm hover:underline">Hover Card</NavigationMenuLink>
+                        <NavigationMenuLink className="text-sm hover:underline">Progress</NavigationMenuLink>
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
+            </Section>
+
+            {/* Resizable */}
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Resizable">
+              <ResizablePanelGroup direction="horizontal" className="max-w-md rounded-lg border border-border">
+                <ResizablePanel defaultSize={50}>
+                  <div className="flex h-32 items-center justify-center p-6">
+                    <span className="text-sm">Panel A</span>
+                  </div>
+                </ResizablePanel>
+                <ResizableHandle />
+                <ResizablePanel defaultSize={50}>
+                  <div className="flex h-32 items-center justify-center p-6">
+                    <span className="text-sm">Panel B</span>
+                  </div>
+                </ResizablePanel>
+              </ResizablePanelGroup>
+            </Section>
+
+            {/* Toggle Group */}
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Toggle Group">
+              <div className="space-y-4">
+                <div>
+                  <p className="text-xs text-muted-foreground mb-2">Single selection</p>
+                  <ToggleGroup type="single">
+                    <ToggleGroupItem value="left">Left</ToggleGroupItem>
+                    <ToggleGroupItem value="center">Center</ToggleGroupItem>
+                    <ToggleGroupItem value="right">Right</ToggleGroupItem>
+                  </ToggleGroup>
+                </div>
+                <div>
+                  <p className="text-xs text-muted-foreground mb-2">Multiple selection</p>
+                  <ToggleGroup type="multiple">
+                    <ToggleGroupItem value="bold">Bold</ToggleGroupItem>
+                    <ToggleGroupItem value="italic">Italic</ToggleGroupItem>
+                    <ToggleGroupItem value="underline">Underline</ToggleGroupItem>
+                  </ToggleGroup>
+                </div>
+              </div>
+            </Section>
+
+            {/* Sonner / Toast */}
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Sonner (Toast)">
+              <div className="flex gap-3">
+                <Button mode="stroke" tone="secondary" onClick={() => toast("Event has been created.")}>
+                  Show Toast
+                </Button>
+                <Button mode="stroke" tone="secondary" onClick={() => toast.success("Successfully saved!")}>
+                  Success Toast
+                </Button>
+                <Button mode="stroke" tone="secondary" onClick={() => toast.error("Something went wrong.")}>
+                  Error Toast
+                </Button>
+              </div>
+            </Section>
+
             {/* Color Palette Preview */}
             <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Color Palette">
               <div className="space-y-6">
@@ -927,6 +1397,7 @@ export default function App() {
             </Section>
           </main>
         </div>
+    <Sonner />
     </TooltipProvider>
     </BaseStyles>
   );
