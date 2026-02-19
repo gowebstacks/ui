@@ -65,6 +65,9 @@ export { Text, textVariants } from "./components/ui/text";
 export type { TextProps } from "./components/ui/text";
 export type { GridProps, GridColumnProps } from "./components/ui/grid";
 
+export { Section, sectionVariants } from "./components/ui/section";
+export type { SectionProps } from "./components/ui/section";
+
 export { Stack, stackVariants } from "./components/ui/stack";
 export type { StackProps } from "./components/ui/stack";
 

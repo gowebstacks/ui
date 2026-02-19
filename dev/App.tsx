@@ -123,18 +123,9 @@ import { Heading } from "../src/components/ui/heading";
 import { Text } from "../src/components/ui/text";
 import { Grid, GridColumn } from "../src/components/ui/grid";
 import { Stack } from "../src/components/ui/stack";
+import { Section } from "../src/components/ui/section";
 import { BaseStyles } from "../src/components/base-styles";
 
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
-  return (
-    <section className="space-y-4">
-      <h2 className="text-2xl text-foreground border-b border-border pb-2">
-        {title}
-      </h2>
-      <div className="space-y-4">{children}</div>
-    </section>
-  );
-}
 
 export default function App() {
   const [dark, setDark] = useState(false);
@@ -162,9 +153,9 @@ export default function App() {
           </header>
 
           {/* Content */}
-          <main className="max-w-6xl mx-auto px-6 py-10 space-y-16">
+          <main>
             {/* Heading */}
-            <Section title="Heading">
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Heading">
               <div className="space-y-6">
                 <Heading as="h1" size="display">Display heading</Heading>
                 <Heading as="h1" size={1}>Heading size 1</Heading>
@@ -190,7 +181,7 @@ export default function App() {
             </Section>
 
             {/* Text */}
-            <Section title="Text">
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Text">
               <div className="space-y-4">
                 <Text size={700}>Text size 700 — Display body text</Text>
                 <Text size={600}>Text size 600 — Large body text for emphasis</Text>
@@ -221,7 +212,7 @@ export default function App() {
             </Section>
 
             {/* Box */}
-            <Section title="Box">
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Box">
               <div className="space-y-4">
                 <p className="text-sm text-muted-foreground">Padding, background, border, and border-radius options.</p>
                 <div className="flex flex-wrap gap-4">
@@ -239,7 +230,7 @@ export default function App() {
             </Section>
 
             {/* Grid */}
-            <Section title="Grid">
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Grid">
               <p className="text-sm text-muted-foreground">12-column grid with responsive columns and gap control.</p>
               <Grid columns={{ narrow: 1, regular: 2, wide: 4 }} gap="normal">
                 {[1, 2, 3, 4].map((i) => (
@@ -265,7 +256,7 @@ export default function App() {
             </Section>
 
             {/* Stack */}
-            <Section title="Stack">
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Stack">
               <p className="text-sm text-muted-foreground">Vertical and horizontal stacking with gap, alignment, and justification.</p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
@@ -302,8 +293,27 @@ export default function App() {
               </div>
             </Section>
 
+            {/* Section */}
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Section">
+              <p className="text-sm text-muted-foreground">Page-level container with padding, background color, rounded corners, and full-width options.</p>
+              <div className="space-y-6">
+                <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" backgroundColor="subtle" rounded>
+                  <Heading as="h3" size={4}>Default subtle section (rounded)</Heading>
+                  <Text variant="muted">A section with condensed padding, subtle background, and rounded corners.</Text>
+                </Section>
+                <Section paddingBlockStart="normal" paddingBlockEnd="normal" backgroundColor="default">
+                  <Heading as="h3" size={4}>Default background section</Heading>
+                  <Text variant="muted">A section with normal padding and the default background color.</Text>
+                </Section>
+                <Section paddingBlockStart="spacious" paddingBlockEnd="spacious" backgroundColor="inset" rounded fullWidth>
+                  <Heading as="h3" size={4}>Full-width inset section (rounded)</Heading>
+                  <Text variant="muted">A full-width section with spacious padding, inset background, and rounded corners.</Text>
+                </Section>
+              </div>
+            </Section>
+
             {/* Buttons */}
-            <Section title="Button">
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Button">
               <div className="flex flex-wrap gap-3">
                 <Button>Default</Button>
                 <Button variant="secondary">Secondary</Button>
@@ -321,7 +331,7 @@ export default function App() {
             </Section>
 
             {/* Badge */}
-            <Section title="Badge">
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Badge">
               <div className="flex flex-wrap gap-3">
                 <Badge>Default</Badge>
                 <Badge variant="secondary">Secondary</Badge>
@@ -331,7 +341,7 @@ export default function App() {
             </Section>
 
             {/* Card */}
-            <Section title="Card">
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Card">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <Card>
                   <CardHeader>
@@ -370,7 +380,7 @@ export default function App() {
             </Section>
 
             {/* Input & Form Controls */}
-            <Section title="Input & Form Controls">
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Input & Form Controls">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-3">
                   <Label htmlFor="email">Email</Label>
@@ -401,7 +411,7 @@ export default function App() {
             </Section>
 
             {/* Checkbox, Radio, Switch */}
-            <Section title="Checkbox, Radio & Switch">
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Checkbox, Radio & Switch">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="space-y-3">
                   <h3>Checkbox</h3>
@@ -446,7 +456,7 @@ export default function App() {
             </Section>
 
             {/* Slider & Progress */}
-            <Section title="Slider & Progress">
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Slider & Progress">
               <div className="space-y-6 max-w-md">
                 <div className="space-y-3">
                   <Label>Slider: {progress}%</Label>
@@ -465,7 +475,7 @@ export default function App() {
             </Section>
 
             {/* Accordion */}
-            <Section title="Accordion">
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Accordion">
               <Accordion type="single" collapsible className="max-w-lg">
                 <AccordionItem value="item-1">
                   <AccordionTrigger>Is it accessible?</AccordionTrigger>
@@ -489,7 +499,7 @@ export default function App() {
             </Section>
 
             {/* Tabs */}
-            <Section title="Tabs">
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Tabs">
               <Tabs defaultValue="account" className="max-w-lg">
                 <TabsList>
                   <TabsTrigger value="account">Account</TabsTrigger>
@@ -546,7 +556,7 @@ export default function App() {
             </Section>
 
             {/* Alert */}
-            <Section title="Alert">
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Alert">
               <div className="space-y-3 max-w-lg">
                 <Alert>
                   <AlertTitle>Heads up!</AlertTitle>
@@ -564,7 +574,7 @@ export default function App() {
             </Section>
 
             {/* Avatar */}
-            <Section title="Avatar">
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Avatar">
               <div className="flex gap-4">
                 <Avatar>
                   <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
@@ -580,7 +590,7 @@ export default function App() {
             </Section>
 
             {/* Breadcrumb */}
-            <Section title="Breadcrumb">
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Breadcrumb">
               <Breadcrumb>
                 <BreadcrumbList>
                   <BreadcrumbItem>
@@ -599,7 +609,7 @@ export default function App() {
             </Section>
 
             {/* Table */}
-            <Section title="Table">
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Table">
               <Table>
                 <TableHeader>
                   <TableRow>
@@ -633,7 +643,7 @@ export default function App() {
             </Section>
 
             {/* Dialog & AlertDialog */}
-            <Section title="Dialog & AlertDialog">
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Dialog & AlertDialog">
               <div className="flex gap-3">
                 <Dialog>
                   <DialogTrigger asChild>
@@ -678,7 +688,7 @@ export default function App() {
             </Section>
 
             {/* Dropdown Menu */}
-            <Section title="Dropdown Menu">
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Dropdown Menu">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="outline">Open Menu</Button>
@@ -695,7 +705,7 @@ export default function App() {
             </Section>
 
             {/* Tooltip & HoverCard */}
-            <Section title="Tooltip & HoverCard">
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Tooltip & HoverCard">
               <div className="flex gap-6">
                 <Tooltip>
                   <TooltipTrigger asChild>
@@ -728,7 +738,7 @@ export default function App() {
             </Section>
 
             {/* Popover */}
-            <Section title="Popover">
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Popover">
               <Popover>
                 <PopoverTrigger asChild>
                   <Button variant="outline">Open Popover</Button>
@@ -752,7 +762,7 @@ export default function App() {
             </Section>
 
             {/* Sheet */}
-            <Section title="Sheet">
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Sheet">
               <Sheet>
                 <SheetTrigger asChild>
                   <Button variant="outline">Open Sheet</Button>
@@ -780,7 +790,7 @@ export default function App() {
             </Section>
 
             {/* Toggle */}
-            <Section title="Toggle">
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Toggle">
               <div className="flex gap-3">
                 <Toggle>Bold</Toggle>
                 <Toggle>Italic</Toggle>
@@ -789,7 +799,7 @@ export default function App() {
             </Section>
 
             {/* Pagination */}
-            <Section title="Pagination">
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Pagination">
               <Pagination>
                 <PaginationContent>
                   <PaginationItem>
@@ -812,7 +822,7 @@ export default function App() {
             </Section>
 
             {/* Separator */}
-            <Section title="Separator">
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Separator">
               <div className="max-w-md">
                 <div className="space-y-1">
                   <h4 className="text-sm">Radix Primitives</h4>
@@ -832,7 +842,7 @@ export default function App() {
             </Section>
 
             {/* Skeleton */}
-            <Section title="Skeleton">
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Skeleton">
               <div className="flex items-center gap-4">
                 <Skeleton className="h-12 w-12 rounded-full" />
                 <div className="space-y-2">
@@ -843,7 +853,7 @@ export default function App() {
             </Section>
 
             {/* Scroll Area */}
-            <Section title="Scroll Area">
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Scroll Area">
               <ScrollArea className="h-48 w-64 rounded-md border border-border p-4">
                 <div className="space-y-4">
                   {Array.from({ length: 20 }).map((_, i) => (
@@ -856,7 +866,7 @@ export default function App() {
             </Section>
 
             {/* Color Palette Preview */}
-            <Section title="Color Palette">
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Color Palette">
               <div className="space-y-6">
                 {[
                   { name: "Blue", prefix: "--color-blue" },
@@ -886,7 +896,7 @@ export default function App() {
             </Section>
 
             {/* Token Preview */}
-            <Section title="Semantic Tokens">
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Semantic Tokens">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {[
                   { label: "Background", var: "--background" },
