@@ -431,7 +431,10 @@ export {
   TableRow,
   TableCell,
   TableCaption,
+  TableColgroup,
+  TableCol,
 } from "./components/ui/table";
+export type { TableBodyProps } from "./components/ui/table";
 
 export { Tabs, TabsList, TabsTrigger, TabsContent } from "./components/ui/tabs";
 
