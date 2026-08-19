@@ -49,6 +49,7 @@
   --token-bg-surface-sunken: var(--color-neutral-200);
   --token-bg-overlay: var(--color-alpha-black-50);
   --token-bg-muted: var(--color-neutral-50);
+  --token-bg-bleed-hover: var(--color-alpha-black-5);
 
   /* ── Icon ── */
   --token-icon-primary: var(--color-blue-700);
@@ -119,6 +120,7 @@
   --token-bg-surface-sunken: var(--color-neutral-950);
   --token-bg-overlay: var(--color-alpha-black-60);
   --token-bg-muted: var(--color-neutral-950);
+  --token-bg-bleed-hover: var(--color-alpha-white-5);
 
   /* ── Icon ── */
   --token-icon-primary: var(--color-blue-600);

@@ -7,6 +7,8 @@ const config: Config = {
   safelist: [
     "border-secondary",
     "bg-secondary-soft",
+    "bg-bleed-hover",
+    "hover:bg-bleed-hover",
     "border-success",
     "border-warning",
     "border-error",
@@ -113,6 +115,8 @@ const config: Config = {
       addUtilities({
         ".border-secondary": { borderColor: "var(--token-border-secondary)" },
         ".bg-secondary-soft": { backgroundColor: "var(--token-bg-secondary-soft)" },
+        ".bg-bleed-hover": { backgroundColor: "var(--token-bg-bleed-hover)" },
+        ".hover\\:bg-bleed-hover:hover": { backgroundColor: "var(--token-bg-bleed-hover)" },
         ".border-success": { borderColor: "var(--token-border-success)" },
         ".border-warning": { borderColor: "var(--token-border-warning)" },
         ".border-error": { borderColor: "var(--token-border-error)" },
