@@ -81,17 +81,17 @@ const buttonVariants = cva(
       {
         mode: "bleed",
         tone: "primary",
-        className: "text-foreground",
+        className: "text-foreground hover:text-foreground",
       },
       {
         mode: "bleed",
         tone: "secondary",
-        className: "text-foreground",
+        className: "text-foreground hover:text-foreground",
       },
       {
         mode: "bleed",
         tone: "tertiary",
-        className: "text-muted-foreground",
+        className: "text-muted-foreground hover:text-muted-foreground",
       },
 
       /* ── Link ── */
