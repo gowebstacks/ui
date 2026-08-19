@@ -59,7 +59,6 @@ const EmptyStateTitle = React.forwardRef<HTMLHeadingElement, HeadingProps>(
       ref={ref}
       as="div"
       size={6}
-      weight="medium"
       className={cn("m-0 leading-tight tracking-tight", className)}
       {...props}
     />
