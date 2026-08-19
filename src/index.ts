@@ -240,6 +240,18 @@ export {
 } from "./components/ui/empty";
 
 export {
+  Entity,
+  EntityContent,
+  EntityList,
+  entityVariants,
+} from "./components/ui/entity";
+export type {
+  EntityProps,
+  EntityContentProps,
+  EntityListProps,
+} from "./components/ui/entity";
+
+export {
   Field,
   FieldLabel,
   FieldDescription,

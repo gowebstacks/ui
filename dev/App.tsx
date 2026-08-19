@@ -200,6 +200,11 @@ import {
   EmptyMedia,
 } from "../src/components/ui/empty";
 import {
+  Entity,
+  EntityContent,
+  EntityList,
+} from "../src/components/ui/entity";
+import {
   Field,
   FieldLabel,
   FieldDescription,
@@ -584,6 +589,72 @@ export default function App() {
                     </ItemContent>
                   </Item>
                 </ItemGroup>
+              </div>
+            </Section>
+
+            {/* Entity */}
+            <Section paddingBlockStart="condensed" paddingBlockEnd="condensed" sectionTitle="Entity">
+              <div className="max-w-lg space-y-6">
+                <EntityList>
+                  <Entity
+                    left={
+                      <Avatar>
+                        <AvatarFallback>AL</AvatarFallback>
+                      </Avatar>
+                    }
+                    right={
+                      <Button size="sm" mode="stroke" tone="secondary">
+                        Remove member
+                      </Button>
+                    }
+                  >
+                    <EntityContent
+                      title="Ada Lovelace"
+                      description="ada@webstacks.com"
+                    />
+                  </Entity>
+                  <Entity
+                    left={
+                      <Avatar>
+                        <AvatarFallback>GH</AvatarFallback>
+                      </Avatar>
+                    }
+                    right={
+                      <Badge variant="secondary">Pending</Badge>
+                    }
+                  >
+                    <EntityContent
+                      title="Grace Hopper"
+                      description="Invited 2 days ago"
+                    />
+                  </Entity>
+                  <Entity
+                    left={<Checkbox defaultChecked aria-label="Select Alan" />}
+                    right={<Badge variant="outline">Owner</Badge>}
+                  >
+                    <EntityContent
+                      title="Alan Turing"
+                      description="alan@webstacks.com"
+                    />
+                  </Entity>
+                </EntityList>
+
+                <Entity
+                  variant="outline"
+                  interactive
+                  as="button"
+                  left={
+                    <Avatar>
+                      <AvatarFallback>WS</AvatarFallback>
+                    </Avatar>
+                  }
+                  right={<Badge>Connected</Badge>}
+                >
+                  <EntityContent
+                    title="Standalone entity"
+                    description="Rendered as a button — click me"
+                  />
+                </Entity>
               </div>
             </Section>
 
