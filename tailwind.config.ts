@@ -1,8 +1,10 @@
 import type { Config } from "tailwindcss";
+import plugin from "tailwindcss/plugin";
 
 const config: Config = {
   darkMode: ["class"],
   content: ["./src/**/*.{ts,tsx}", "./dev/**/*.{ts,tsx}"],
+  safelist: ["border-secondary"],
   theme: {
     extend: {
       colors: {
@@ -37,7 +39,13 @@ const config: Config = {
           foreground: "var(--destructive-foreground)",
         },
         border: "var(--border)",
-        input: "var(--input)",
+        input: {
+          DEFAULT: "var(--input)",
+          surface: "var(--token-bg-input)",
+        },
+        heading: "var(--token-text-heading)",
+        disabled: "var(--token-text-disabled)",
+        error: "var(--token-border-error)",
         ring: "var(--ring)",
         chart: {
           "1": "var(--chart-1)",
@@ -88,7 +96,15 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(({ addUtilities }) => {
+      addUtilities({
+        ".border-secondary": {
+          borderColor: "var(--token-border-secondary)",
+        },
+      });
+    }),
+  ],
 };
 
 export default config;

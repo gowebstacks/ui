@@ -60,6 +60,7 @@
   --token-border-secondary: var(--color-alpha-black-5);
   --token-border-card: var(--color-neutral-500);
   --token-border-input: var(--color-neutral-500);
+  --token-border-error: var(--color-error-800);
   --token-border-subtle: var(--color-neutral-200);
   --token-border-strong: var(--color-neutral-700);
   --token-border-muted: var(--color-neutral-300);
@@ -126,6 +127,7 @@
   --token-border-secondary: var(--color-neutral-900);
   --token-border-card: var(--color-neutral-700);
   --token-border-input: var(--color-neutral-900);
+  --token-border-error: var(--color-error-800);
   --token-border-subtle: var(--color-neutral-800);
   --token-border-strong: var(--color-neutral-300);
   --token-border-muted: var(--color-neutral-700);

@@ -1,6 +1,6 @@
 {
   "name": "@webstacks/ui",
-  "version": "0.4.7",
+  "version": "0.4.9",
   "description": "A shareable React component library",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -21,11 +21,26 @@
     "./styles.css": "./dist/index.css",
     "./styles": "./src/styles/globals.css",
     "./fonts.css": "./src/styles/fonts.css",
-    "./dist/index.css": "./dist/index.css"
+    "./dist/index.css": "./dist/index.css",
+    "./product": {
+      "import": {
+        "types": "./dist/product/index.d.ts",
+        "default": "./dist/product/index.js"
+      },
+      "require": {
+        "types": "./dist/product/index.d.cts",
+        "default": "./dist/product/index.cjs"
+      }
+    },
+    "./product/theme": "./src/product/styles/theme.css",
+    "./product/styles.css": "./dist/product/index.css",
+    "./product/styles": "./src/product/styles/globals.css",
+    "./product/fonts.css": "./src/product/styles/fonts.css"
   },
   "files": [
     "dist",
     "src/styles",
+    "src/product/styles",
     "src/fonts"
   ],
   "sideEffects": [
