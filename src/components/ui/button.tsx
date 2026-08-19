@@ -11,7 +11,7 @@ const buttonVariants = cva(
       mode: {
         filled: "hover:brightness-110 active:brightness-95 disabled:opacity-50",
         stroke: "bg-transparent border disabled:opacity-50",
-        bleed: "bg-transparent border-0 rounded hover:bg-accent disabled:opacity-50",
+        bleed: "bg-secondary-soft border-0 hover:bg-accent disabled:opacity-50",
         link: "disabled:opacity-50",
       },
       tone: {
@@ -131,21 +131,6 @@ const buttonVariants = cva(
         mode: "link",
         size: "lg",
         className: "px-0 py-0 text-base",
-      },
-      {
-        mode: "bleed",
-        size: "sm",
-        className: "px-2 py-1 text-sm",
-      },
-      {
-        mode: "bleed",
-        size: "md",
-        className: "px-3 py-2 text-sm",
-      },
-      {
-        mode: "bleed",
-        size: "lg",
-        className: "px-3 py-2 text-base",
       },
     ],
   }

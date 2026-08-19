@@ -4,7 +4,19 @@ import plugin from "tailwindcss/plugin";
 const config: Config = {
   darkMode: ["class"],
   content: ["./src/**/*.{ts,tsx}", "./dev/**/*.{ts,tsx}"],
-  safelist: ["border-secondary"],
+  safelist: [
+    "border-secondary",
+    "bg-secondary-soft",
+    "border-success",
+    "border-warning",
+    "border-error",
+    "bg-success",
+    "bg-warning",
+    "bg-error",
+    "text-success",
+    "text-warning",
+    "text-error",
+  ],
   theme: {
     extend: {
       colors: {
@@ -99,9 +111,17 @@ const config: Config = {
   plugins: [
     plugin(({ addUtilities }) => {
       addUtilities({
-        ".border-secondary": {
-          borderColor: "var(--token-border-secondary)",
-        },
+        ".border-secondary": { borderColor: "var(--token-border-secondary)" },
+        ".bg-secondary-soft": { backgroundColor: "var(--token-bg-secondary-soft)" },
+        ".border-success": { borderColor: "var(--token-border-success)" },
+        ".border-warning": { borderColor: "var(--token-border-warning)" },
+        ".border-error": { borderColor: "var(--token-border-error)" },
+        ".bg-success": { backgroundColor: "var(--token-bg-success)" },
+        ".bg-warning": { backgroundColor: "var(--token-bg-warning)" },
+        ".bg-error": { backgroundColor: "var(--token-bg-error)" },
+        ".text-success": { color: "var(--token-text-success)" },
+        ".text-warning": { color: "var(--token-text-warning)" },
+        ".text-error": { color: "var(--token-text-error)" },
       });
     }),
   ],
