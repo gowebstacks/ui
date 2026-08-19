@@ -436,6 +436,19 @@ export {
 } from "./components/ui/table";
 export type { TableBodyProps } from "./components/ui/table";
 
+export {
+  VirtualTable,
+  VirtualTableHeader,
+  VirtualTableRow,
+  VirtualTableHead,
+  VirtualTableCell,
+  VirtualTableBody,
+} from "./components/ui/virtual-table";
+export type {
+  VirtualTableProps,
+  VirtualTableBodyProps,
+} from "./components/ui/virtual-table";
+
 export { Tabs, TabsList, TabsTrigger, TabsContent } from "./components/ui/tabs";
 
 export { Textarea } from "./components/ui/textarea";
