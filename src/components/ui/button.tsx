@@ -5,7 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       mode: {
@@ -18,13 +18,22 @@ const buttonVariants = cva(
         primary: "",
         secondary: "",
         tertiary: "",
+        destructive: "",
       },
       size: {
-        xs: "",
+        xs: "px-2.5 py-1 text-xs",
         sm: "px-4 py-2 text-xs",
         md: "px-6 py-3 text-sm",
         lg: "px-8 py-4 text-base",
         icon: "h-9 w-9",
+      },
+      radius: {
+        none: "rounded-none",
+        sm: "rounded-sm",
+        md: "rounded-md",
+        lg: "rounded-lg",
+        xl: "rounded-xl",
+        full: "rounded-full",
       },
       fullWidth: {
         true: "w-full",
@@ -35,6 +44,7 @@ const buttonVariants = cva(
       mode: "filled",
       tone: "primary",
       size: "md",
+      radius: "full",
     },
     compoundVariants: [
       /* ── Filled ── */
@@ -56,6 +66,12 @@ const buttonVariants = cva(
         className:
           "bg-muted text-foreground",
       },
+      {
+        mode: "filled",
+        tone: "destructive",
+        className:
+          "bg-destructive text-destructive-foreground hover:brightness-110",
+      },
 
       /* ── Stroke ── */
       {
@@ -76,6 +92,12 @@ const buttonVariants = cva(
         className:
           "border-border text-foreground hover:bg-accent",
       },
+      {
+        mode: "stroke",
+        tone: "destructive",
+        className:
+          "border-destructive text-destructive hover:bg-destructive hover:text-destructive-foreground",
+      },
 
       /* ── Bleed ── */
       {
@@ -93,6 +115,11 @@ const buttonVariants = cva(
         tone: "tertiary",
         className: "text-muted-foreground hover:text-muted-foreground",
       },
+      {
+        mode: "bleed",
+        tone: "destructive",
+        className: "text-destructive hover:text-destructive",
+      },
 
       /* ── Link ── */
       {
@@ -109,6 +136,11 @@ const buttonVariants = cva(
         mode: "link",
         tone: "tertiary",
         className: "text-muted-foreground underline-offset-4 hover:underline",
+      },
+      {
+        mode: "link",
+        tone: "destructive",
+        className: "text-destructive underline-offset-4 hover:underline",
       },
 
       /* ── Link + Bleed size overrides ── */
@@ -143,11 +175,11 @@ export interface ButtonProps
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, mode, tone, size, fullWidth, asChild = false, ...props }, ref) => {
+  ({ className, mode, tone, size, radius, fullWidth, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
     return (
       <Comp
-        className={cn(buttonVariants({ mode, tone, size, fullWidth, className }))}
+        className={cn(buttonVariants({ mode, tone, size, radius, fullWidth, className }))}
         ref={ref}
         {...props}
       />

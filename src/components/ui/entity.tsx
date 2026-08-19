@@ -133,7 +133,7 @@ function EntityContent({
         <div
           data-slot="entity-title"
           className={cn(
-            "truncate text-sm font-medium leading-snug",
+            "truncate text-sm leading-snug",
             titleClassName
           )}
         >
