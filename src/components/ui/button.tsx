@@ -3,6 +3,12 @@ import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center gap-2 whitespace-nowrap transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
@@ -172,17 +178,48 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean
+  /**
+   * Tooltip label rendered on hover/focus. Non-null values wrap the button
+   * in a Radix Tooltip; use for icon-only buttons where the intent isn't
+   * visible in the label.
+   */
+  tooltip?: React.ReactNode
+  /** Side to place the tooltip on. Defaults to `top`. */
+  tooltipSide?: "top" | "right" | "bottom" | "left"
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, mode, tone, size, radius, fullWidth, asChild = false, ...props }, ref) => {
+  (
+    {
+      className,
+      mode,
+      tone,
+      size,
+      radius,
+      fullWidth,
+      asChild = false,
+      tooltip,
+      tooltipSide = "top",
+      ...props
+    },
+    ref
+  ) => {
     const Comp = asChild ? Slot : "button"
-    return (
+    const button = (
       <Comp
         className={cn(buttonVariants({ mode, tone, size, radius, fullWidth, className }))}
         ref={ref}
         {...props}
       />
+    )
+    if (tooltip == null || tooltip === false || tooltip === "") return button
+    return (
+      <TooltipProvider delayDuration={200} disableHoverableContent>
+        <Tooltip>
+          <TooltipTrigger asChild>{button}</TooltipTrigger>
+          <TooltipContent side={tooltipSide}>{tooltip}</TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
     )
   }
 )
