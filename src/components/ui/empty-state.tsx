@@ -2,6 +2,7 @@ import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
+import { Heading, type HeadingProps } from "./heading"
 
 const emptyStateVariants = cva(
   "flex flex-col items-center justify-center text-center",
@@ -52,19 +53,17 @@ const EmptyStateIcon = React.forwardRef<
 ))
 EmptyStateIcon.displayName = "EmptyStateIcon"
 
-const EmptyStateTitle = React.forwardRef<
-  HTMLHeadingElement,
-  React.HTMLAttributes<HTMLHeadingElement>
->(({ className, ...props }, ref) => (
-  <h3
-    ref={ref}
-    className={cn(
-      "font-heading text-lg leading-tight tracking-tight text-foreground",
-      className
-    )}
-    {...props}
-  />
-))
+const EmptyStateTitle = React.forwardRef<HTMLHeadingElement, HeadingProps>(
+  ({ className, ...props }, ref) => (
+    <Heading
+      ref={ref}
+      as="h3"
+      size={6}
+      className={cn("leading-tight tracking-tight", className)}
+      {...props}
+    />
+  )
+)
 EmptyStateTitle.displayName = "EmptyStateTitle"
 
 const EmptyStateDescription = React.forwardRef<
