@@ -45,7 +45,7 @@ const EmptyStateIcon = React.forwardRef<
     ref={ref}
     aria-hidden="true"
     className={cn(
-      "flex h-8 w-8 items-center justify-center text-muted-foreground [&_svg]:h-full [&_svg]:w-full",
+      "flex h-10 w-10 items-center justify-center border border-secondary text-muted-foreground [&_svg]:size-5",
       className
     )}
     {...props}
