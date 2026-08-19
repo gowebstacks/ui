@@ -7,3 +7,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+::selection {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.dark ::selection {
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
