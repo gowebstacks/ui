@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 
-const headingVariants = cva("font-heading scroll-m-24", {
+const headingVariants = cva("font-heading font-normal scroll-m-24", {
   variants: {
     size: {
       display:
