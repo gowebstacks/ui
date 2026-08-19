@@ -53,7 +53,7 @@ const headingVariants = cva("font-heading scroll-m-24", {
   },
 })
 
-type HeadingTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6"
+type HeadingTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "div" | "span" | "p"
 type HeadingSize = "display" | 1 | 2 | 3 | 4 | 5 | 6 | "subhead-large" | "subhead-medium"
 
 interface ResponsiveProp<T> {
