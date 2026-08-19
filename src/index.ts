@@ -435,6 +435,26 @@ export { Toaster as Sonner } from "./components/ui/sonner";
 export { Switch } from "./components/ui/switch";
 
 export {
+  SegmentedSwitch,
+  SegmentedSwitchItem,
+  segmentedSwitchVariants,
+  segmentedSwitchItemVariants,
+} from "./components/ui/segmented-switch";
+export type {
+  SegmentedSwitchProps,
+  SegmentedSwitchItemProps,
+} from "./components/ui/segmented-switch";
+
+export {
+  SplitButton,
+  SplitButtonMenuItem,
+} from "./components/ui/split-button";
+export type {
+  SplitButtonProps,
+  SplitButtonMenuItemProps,
+} from "./components/ui/split-button";
+
+export {
   Table,
   TableHeader,
   TableBody,
